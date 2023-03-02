@@ -1,0 +1,414 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmployeeManagementtModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="EmployeeAddress">
+    <Key>
+      <PropertyRef Name="AddressID" />
+    </Key>
+    <Property Name="AddressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+    <Property Name="AddressLine1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AddressLine2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PostalCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="State" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Country" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsCurrent" Type="Boolean" Nullable="false" />
+    <Property Name="IsPermanent" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="EmployeeDetail" Relationship="Self.FK__EmployeeA__IsPer__382F5661" FromRole="EmployeeAddress" ToRole="EmployeeDetails" />
+  </EntityType>
+  <EntityType Name="EmployeeDepartment">
+    <Key>
+      <PropertyRef Name="DepartmentID" />
+    </Key>
+    <Property Name="DepartmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeDesignation">
+    <Key>
+      <PropertyRef Name="DesignationID" />
+    </Key>
+    <Property Name="DesignationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeDetail">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Photo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DateofBirth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Gender" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PersonalEmail" Type="String" MaxLength="320" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OfficialEmail" Type="String" MaxLength="320" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PhoneNO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmergencyContactNo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="WorkLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="WorkingState" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="WorkingCountry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Dateofjoining" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ReportingManager" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="EmployeeAddresses" Relationship="Self.FK__EmployeeA__IsPer__382F5661" FromRole="EmployeeDetails" ToRole="EmployeeAddress" />
+    <NavigationProperty Name="EmployeeDocuments" Relationship="Self.FK__EmployeeD__Docum__3DE82FB7" FromRole="EmployeeDetails" ToRole="EmployeeDocuments" />
+    <NavigationProperty Name="EmployeeExperiences" Relationship="Self.FK__EmployeeE__EndDa__40C49C62" FromRole="EmployeeDetails" ToRole="EmployeeExperience" />
+    <NavigationProperty Name="EmployeeEducationDetails" Relationship="Self.FK__EmployeeE__Perce__3B0BC30C" FromRole="EmployeeDetails" ToRole="EmployeeEducationDetails" />
+    <NavigationProperty Name="EmployeeLoginCredentials" Relationship="Self.FK__EmployeeL__Emplo__4E1E9780" FromRole="EmployeeDetails" ToRole="EmployeeLoginCredentials" />
+    <NavigationProperty Name="EmployeeSalaryStructures" Relationship="Self.FK__EmployeeS__NetSa__336AA144" FromRole="EmployeeDetails" ToRole="EmployeeSalaryStructure" />
+  </EntityType>
+  <EntityType Name="EmployeeDocumentMaster">
+    <Key>
+      <PropertyRef Name="DocumentID" />
+    </Key>
+    <Property Name="DocumentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DocumentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeDocument">
+    <Key>
+      <PropertyRef Name="DocumentID" />
+    </Key>
+    <Property Name="DocumentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+    <Property Name="DocumentImage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DocumentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EmployeeDetail" Relationship="Self.FK__EmployeeD__Docum__3DE82FB7" FromRole="EmployeeDocuments" ToRole="EmployeeDetails" />
+  </EntityType>
+  <EntityType Name="EmployeeEducationDetail">
+    <Key>
+      <PropertyRef Name="EducationID" />
+    </Key>
+    <Property Name="EducationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+    <Property Name="Degree" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Institution" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="State" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="DegreeType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Percentage" Type="Decimal" Precision="3" Scale="2" Nullable="false" />
+    <NavigationProperty Name="EmployeeDetail" Relationship="Self.FK__EmployeeE__Perce__3B0BC30C" FromRole="EmployeeEducationDetails" ToRole="EmployeeDetails" />
+  </EntityType>
+  <EntityType Name="EmployeeExperience">
+    <Key>
+      <PropertyRef Name="ExperienceID" />
+    </Key>
+    <Property Name="ExperienceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="JobTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="EmployeeDetail" Relationship="Self.FK__EmployeeE__EndDa__40C49C62" FromRole="EmployeeExperience" ToRole="EmployeeDetails" />
+  </EntityType>
+  <EntityType Name="EmployeeLoginCredential">
+    <Key>
+      <PropertyRef Name="LoginID" />
+    </Key>
+    <Property Name="LoginID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="Int32" />
+    <Property Name="EmployeeEmail" Type="String" MaxLength="320" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmployeePassword" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EmployeeDetail" Relationship="Self.FK__EmployeeL__Emplo__4E1E9780" FromRole="EmployeeLoginCredentials" ToRole="EmployeeDetails" />
+  </EntityType>
+  <EntityType Name="EmployeeSalaryStructure">
+    <Key>
+      <PropertyRef Name="EmployeeSalaryID" />
+    </Key>
+    <Property Name="EmployeeSalaryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+    <Property Name="BasicSalary" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="HRA" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="DA" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="TA" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="OtherAllowances" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Deductions" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="NetSalary" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <NavigationProperty Name="EmployeeDetail" Relationship="Self.FK__EmployeeS__NetSa__336AA144" FromRole="EmployeeSalaryStructure" ToRole="EmployeeDetails" />
+  </EntityType>
+  <Association Name="FK__EmployeeA__IsPer__382F5661">
+    <End Role="EmployeeDetails" Type="Self.EmployeeDetail" Multiplicity="1" />
+    <End Role="EmployeeAddress" Type="Self.EmployeeAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeDetails">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="EmployeeAddress">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EmployeeD__Docum__3DE82FB7">
+    <End Role="EmployeeDetails" Type="Self.EmployeeDetail" Multiplicity="1" />
+    <End Role="EmployeeDocuments" Type="Self.EmployeeDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeDetails">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="EmployeeDocuments">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EmployeeE__EndDa__40C49C62">
+    <End Role="EmployeeDetails" Type="Self.EmployeeDetail" Multiplicity="1" />
+    <End Role="EmployeeExperience" Type="Self.EmployeeExperience" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeDetails">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="EmployeeExperience">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EmployeeE__Perce__3B0BC30C">
+    <End Role="EmployeeDetails" Type="Self.EmployeeDetail" Multiplicity="1" />
+    <End Role="EmployeeEducationDetails" Type="Self.EmployeeEducationDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeDetails">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="EmployeeEducationDetails">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EmployeeL__Emplo__4E1E9780">
+    <End Role="EmployeeDetails" Type="Self.EmployeeDetail" Multiplicity="0..1" />
+    <End Role="EmployeeLoginCredentials" Type="Self.EmployeeLoginCredential" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeDetails">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="EmployeeLoginCredentials">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EmployeeS__NetSa__336AA144">
+    <End Role="EmployeeDetails" Type="Self.EmployeeDetail" Multiplicity="1" />
+    <End Role="EmployeeSalaryStructure" Type="Self.EmployeeSalaryStructure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeDetails">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="EmployeeSalaryStructure">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EmployeeManagementtEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="EmployeeAddresses" EntityType="Self.EmployeeAddress" />
+    <EntitySet Name="EmployeeDepartments" EntityType="Self.EmployeeDepartment" />
+    <EntitySet Name="EmployeeDesignations" EntityType="Self.EmployeeDesignation" />
+    <EntitySet Name="EmployeeDetails" EntityType="Self.EmployeeDetail" />
+    <EntitySet Name="EmployeeDocumentMasters" EntityType="Self.EmployeeDocumentMaster" />
+    <EntitySet Name="EmployeeDocuments" EntityType="Self.EmployeeDocument" />
+    <EntitySet Name="EmployeeEducationDetails" EntityType="Self.EmployeeEducationDetail" />
+    <EntitySet Name="EmployeeExperiences" EntityType="Self.EmployeeExperience" />
+    <EntitySet Name="EmployeeLoginCredentials" EntityType="Self.EmployeeLoginCredential" />
+    <EntitySet Name="EmployeeSalaryStructures" EntityType="Self.EmployeeSalaryStructure" />
+    <AssociationSet Name="FK__EmployeeA__IsPer__382F5661" Association="Self.FK__EmployeeA__IsPer__382F5661">
+      <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
+      <End Role="EmployeeAddress" EntitySet="EmployeeAddresses" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EmployeeD__Docum__3DE82FB7" Association="Self.FK__EmployeeD__Docum__3DE82FB7">
+      <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
+      <End Role="EmployeeDocuments" EntitySet="EmployeeDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EmployeeE__EndDa__40C49C62" Association="Self.FK__EmployeeE__EndDa__40C49C62">
+      <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
+      <End Role="EmployeeExperience" EntitySet="EmployeeExperiences" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EmployeeE__Perce__3B0BC30C" Association="Self.FK__EmployeeE__Perce__3B0BC30C">
+      <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
+      <End Role="EmployeeEducationDetails" EntitySet="EmployeeEducationDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EmployeeL__Emplo__4E1E9780" Association="Self.FK__EmployeeL__Emplo__4E1E9780">
+      <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
+      <End Role="EmployeeLoginCredentials" EntitySet="EmployeeLoginCredentials" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EmployeeS__NetSa__336AA144" Association="Self.FK__EmployeeS__NetSa__336AA144">
+      <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
+      <End Role="EmployeeSalaryStructure" EntitySet="EmployeeSalaryStructures" />
+    </AssociationSet>
+    <FunctionImport Name="sp_EmployeeAddress" ReturnType="Collection(EmployeeManagementtModel.sp_EmployeeAddress_Result)">
+      <Parameter Name="AddressID" Mode="In" Type="Int32" />
+      <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
+      <Parameter Name="AddressLine1" Mode="In" Type="String" />
+      <Parameter Name="AddressLine2" Mode="In" Type="String" />
+      <Parameter Name="PostalCode" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="State" Mode="In" Type="String" />
+      <Parameter Name="Country" Mode="In" Type="String" />
+      <Parameter Name="IsCurrent" Mode="In" Type="Boolean" />
+      <Parameter Name="IsPermanent" Mode="In" Type="Boolean" />
+      <Parameter Name="Operation" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_EmployeeDepartment" ReturnType="Collection(EmployeeManagementtModel.sp_EmployeeDepartment_Result)">
+      <Parameter Name="DepartmentID" Mode="In" Type="Int32" />
+      <Parameter Name="Department" Mode="In" Type="String" />
+      <Parameter Name="Operation" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_EmployeeDesignation" ReturnType="Collection(EmployeeManagementtModel.sp_EmployeeDesignation_Result)">
+      <Parameter Name="DesignationID" Mode="In" Type="Int32" />
+      <Parameter Name="Designation" Mode="In" Type="String" />
+      <Parameter Name="Operation" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_EmployeeDetails" ReturnType="Collection(EmployeeManagementtModel.sp_EmployeeDetails_Result)">
+      <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
+      <Parameter Name="Photo" Mode="In" Type="String" />
+      <Parameter Name="FirstName" Mode="In" Type="String" />
+      <Parameter Name="LastName" Mode="In" Type="String" />
+      <Parameter Name="DateofBirth" Mode="In" Type="DateTime" />
+      <Parameter Name="Gender" Mode="In" Type="String" />
+      <Parameter Name="PersonalEmail" Mode="In" Type="String" />
+      <Parameter Name="OfficialEmail" Mode="In" Type="String" />
+      <Parameter Name="PhoneNo" Mode="In" Type="String" />
+      <Parameter Name="EmergencyContactNo" Mode="In" Type="String" />
+      <Parameter Name="WorkLocation" Mode="In" Type="String" />
+      <Parameter Name="WorkingState" Mode="In" Type="String" />
+      <Parameter Name="WorkingCountry" Mode="In" Type="String" />
+      <Parameter Name="DateofJoining" Mode="In" Type="DateTime" />
+      <Parameter Name="Designation" Mode="In" Type="String" />
+      <Parameter Name="Department" Mode="In" Type="String" />
+      <Parameter Name="ReportingManager" Mode="In" Type="String" />
+      <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+      <Parameter Name="Operation" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_EmployeeDocument" ReturnType="Collection(EmployeeManagementtModel.sp_EmployeeDocument_Result)">
+      <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
+      <Parameter Name="DocumentImage" Mode="In" Type="String" />
+      <Parameter Name="DocumentName" Mode="In" Type="String" />
+      <Parameter Name="Operation" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_EmployeeDocumentMaster" ReturnType="Collection(EmployeeManagementtModel.sp_EmployeeDocumentMaster_Result)">
+      <Parameter Name="DocumentID" Mode="In" Type="Int32" />
+      <Parameter Name="DocumentName" Mode="In" Type="String" />
+      <Parameter Name="Operation" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_EmployeeEducationDetails" ReturnType="Collection(EmployeeManagementtModel.sp_EmployeeEducationDetails_Result)">
+      <Parameter Name="EducationID" Mode="In" Type="Int32" />
+      <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
+      <Parameter Name="Degree" Mode="In" Type="String" />
+      <Parameter Name="Institution" Mode="In" Type="String" />
+      <Parameter Name="State" Mode="In" Type="String" />
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DegreeType" Mode="In" Type="String" />
+      <Parameter Name="Percentage" Mode="In" Type="Decimal" />
+      <Parameter Name="Operation" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_EmployeeExpereince" ReturnType="Collection(EmployeeManagementtModel.sp_EmployeeExpereince_Result)">
+      <Parameter Name="ExperienceID" Mode="In" Type="Int32" />
+      <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyName" Mode="In" Type="String" />
+      <Parameter Name="JobTitle" Mode="In" Type="String" />
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Operation" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_EmployeeSalaryStructure" ReturnType="Collection(EmployeeManagementtModel.sp_EmployeeSalaryStructure_Result)">
+      <Parameter Name="SalaryID" Mode="In" Type="Int32" />
+      <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
+      <Parameter Name="BasicSalary" Mode="In" Type="Decimal" />
+      <Parameter Name="HRA" Mode="In" Type="Decimal" />
+      <Parameter Name="DA" Mode="In" Type="Decimal" />
+      <Parameter Name="TA" Mode="In" Type="Decimal" />
+      <Parameter Name="OtherAllowances" Mode="In" Type="Decimal" />
+      <Parameter Name="Deductions" Mode="In" Type="Decimal" />
+      <Parameter Name="NetSalary" Mode="In" Type="Decimal" />
+      <Parameter Name="Operation" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_LoginCredentials">
+      <Parameter Name="LoginId" Mode="In" Type="Int32" />
+      <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
+      <Parameter Name="EmployeeEmail" Mode="In" Type="String" />
+      <Parameter Name="EmployeePassword" Mode="In" Type="String" />
+      <Parameter Name="Operation" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_EmployeeAddress_Result">
+    <Property Type="Int32" Name="AddressID" Nullable="false" />
+    <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+    <Property Type="String" Name="AddressLine1" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="AddressLine2" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="PostalCode" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="City" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="State" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Country" Nullable="false" MaxLength="20" />
+    <Property Type="Boolean" Name="IsCurrent" Nullable="false" />
+    <Property Type="Boolean" Name="IsPermanent" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_EmployeeDepartment_Result">
+    <Property Type="Int32" Name="DepartmentID" Nullable="false" />
+    <Property Type="String" Name="Department" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_EmployeeDesignation_Result">
+    <Property Type="Int32" Name="DesignationID" Nullable="false" />
+    <Property Type="String" Name="Designation" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_EmployeeDetails_Result">
+    <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+    <Property Type="String" Name="Photo" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="LastName" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="DateofBirth" Nullable="false" />
+    <Property Type="String" Name="Gender" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="PersonalEmail" Nullable="false" MaxLength="320" />
+    <Property Type="String" Name="OfficialEmail" Nullable="false" MaxLength="320" />
+    <Property Type="String" Name="PhoneNO" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="EmergencyContactNo" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="WorkLocation" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="WorkingState" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="WorkingCountry" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="Dateofjoining" Nullable="false" />
+    <Property Type="String" Name="Designation" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Department" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ReportingManager" Nullable="false" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="sp_EmployeeDocument_Result">
+    <Property Type="Int32" Name="DocumentID" Nullable="false" />
+    <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+    <Property Type="String" Name="DocumentImage" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="DocumentName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_EmployeeDocumentMaster_Result">
+    <Property Type="Int32" Name="DocumentID" Nullable="false" />
+    <Property Type="String" Name="DocumentName" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_EmployeeEducationDetails_Result">
+    <Property Type="Int32" Name="EducationID" Nullable="false" />
+    <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+    <Property Type="String" Name="Degree" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Institution" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="State" Nullable="false" MaxLength="20" />
+    <Property Type="DateTime" Name="StartDate" Nullable="false" />
+    <Property Type="DateTime" Name="EndDate" Nullable="false" />
+    <Property Type="String" Name="DegreeType" Nullable="false" MaxLength="50" />
+    <Property Type="Decimal" Name="Percentage" Nullable="false" Precision="3" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="sp_EmployeeExpereince_Result">
+    <Property Type="Int32" Name="ExperienceID" Nullable="false" />
+    <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+    <Property Type="String" Name="CompanyName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="JobTitle" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="StartDate" Nullable="true" />
+    <Property Type="DateTime" Name="EndDate" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_EmployeeSalaryStructure_Result">
+    <Property Type="Int32" Name="EmployeeSalaryID" Nullable="false" />
+    <Property Type="Int32" Name="EmployeeID" Nullable="false" />
+    <Property Type="Decimal" Name="BasicSalary" Nullable="false" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="HRA" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="DA" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="TA" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="OtherAllowances" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="Deductions" Nullable="true" Precision="10" Scale="2" />
+    <Property Type="Decimal" Name="NetSalary" Nullable="false" Precision="10" Scale="2" />
+  </ComplexType>
+</Schema>

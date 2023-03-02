@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmployeeManagementtModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="EmployeeAddress">
+    <Key>
+      <PropertyRef Name="AddressID" />
+    </Key>
+    <Property Name="AddressID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="AddressLine1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="AddressLine2" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PostalCode" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="State" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Country" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="IsCurrent" Type="bit" Nullable="false" />
+    <Property Name="IsPermanent" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeDepartment">
+    <Key>
+      <PropertyRef Name="DepartmentID" />
+    </Key>
+    <Property Name="DepartmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Department" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeDesignation">
+    <Key>
+      <PropertyRef Name="DesignationID" />
+    </Key>
+    <Property Name="DesignationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Designation" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeDetails">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Photo" Type="varchar" MaxLength="255" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DateofBirth" Type="date" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PersonalEmail" Type="varchar" MaxLength="320" Nullable="false" />
+    <Property Name="OfficialEmail" Type="varchar" MaxLength="320" Nullable="false" />
+    <Property Name="PhoneNO" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="EmergencyContactNo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="WorkLocation" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="WorkingState" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="WorkingCountry" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dateofjoining" Type="date" Nullable="false" />
+    <Property Name="Designation" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Department" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ReportingManager" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeDocumentMaster">
+    <Key>
+      <PropertyRef Name="DocumentID" />
+    </Key>
+    <Property Name="DocumentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DocumentName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeDocuments">
+    <Key>
+      <PropertyRef Name="DocumentID" />
+    </Key>
+    <Property Name="DocumentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="DocumentImage" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DocumentName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeEducationDetails">
+    <Key>
+      <PropertyRef Name="EducationID" />
+    </Key>
+    <Property Name="EducationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="Degree" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Institution" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="State" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="StartDate" Type="date" Nullable="false" />
+    <Property Name="EndDate" Type="date" Nullable="false" />
+    <Property Name="DegreeType" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Percentage" Type="decimal" Precision="3" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeExperience">
+    <Key>
+      <PropertyRef Name="ExperienceID" />
+    </Key>
+    <Property Name="ExperienceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="CompanyName" Type="varchar" MaxLength="50" />
+    <Property Name="JobTitle" Type="varchar" MaxLength="50" />
+    <Property Name="StartDate" Type="date" />
+    <Property Name="EndDate" Type="date" />
+  </EntityType>
+  <EntityType Name="EmployeeLoginCredentials">
+    <Key>
+      <PropertyRef Name="LoginID" />
+    </Key>
+    <Property Name="LoginID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" />
+    <Property Name="EmployeeEmail" Type="varchar" MaxLength="320" Nullable="false" />
+    <Property Name="EmployeePassword" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EmployeeSalaryStructure">
+    <Key>
+      <PropertyRef Name="EmployeeSalaryID" />
+    </Key>
+    <Property Name="EmployeeSalaryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="BasicSalary" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="HRA" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="DA" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="TA" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="OtherAllowances" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Deductions" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="NetSalary" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__EmployeeA__IsPer__382F5661">
+    <End Role="EmployeeDetails" Type="Self.EmployeeDetails" Multiplicity="1" />
+    <End Role="EmployeeAddress" Type="Self.EmployeeAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeDetails">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="EmployeeAddress">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EmployeeD__Docum__3DE82FB7">
+    <End Role="EmployeeDetails" Type="Self.EmployeeDetails" Multiplicity="1" />
+    <End Role="EmployeeDocuments" Type="Self.EmployeeDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeDetails">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="EmployeeDocuments">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EmployeeE__EndDa__40C49C62">
+    <End Role="EmployeeDetails" Type="Self.EmployeeDetails" Multiplicity="1" />
+    <End Role="EmployeeExperience" Type="Self.EmployeeExperience" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeDetails">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="EmployeeExperience">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EmployeeE__Perce__3B0BC30C">
+    <End Role="EmployeeDetails" Type="Self.EmployeeDetails" Multiplicity="1" />
+    <End Role="EmployeeEducationDetails" Type="Self.EmployeeEducationDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeDetails">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="EmployeeEducationDetails">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EmployeeL__Emplo__4E1E9780">
+    <End Role="EmployeeDetails" Type="Self.EmployeeDetails" Multiplicity="0..1" />
+    <End Role="EmployeeLoginCredentials" Type="Self.EmployeeLoginCredentials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeDetails">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="EmployeeLoginCredentials">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__EmployeeS__NetSa__336AA144">
+    <End Role="EmployeeDetails" Type="Self.EmployeeDetails" Multiplicity="1" />
+    <End Role="EmployeeSalaryStructure" Type="Self.EmployeeSalaryStructure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EmployeeDetails">
+        <PropertyRef Name="EmployeeID" />
+      </Principal>
+      <Dependent Role="EmployeeSalaryStructure">
+        <PropertyRef Name="EmployeeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="sp_EmployeeAddress" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AddressID" Type="int" Mode="In" />
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+    <Parameter Name="AddressLine1" Type="varchar" Mode="In" />
+    <Parameter Name="AddressLine2" Type="varchar" Mode="In" />
+    <Parameter Name="PostalCode" Type="varchar" Mode="In" />
+    <Parameter Name="City" Type="varchar" Mode="In" />
+    <Parameter Name="State" Type="varchar" Mode="In" />
+    <Parameter Name="Country" Type="varchar" Mode="In" />
+    <Parameter Name="IsCurrent" Type="bit" Mode="In" />
+    <Parameter Name="IsPermanent" Type="bit" Mode="In" />
+    <Parameter Name="Operation" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_EmployeeDepartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DepartmentID" Type="int" Mode="In" />
+    <Parameter Name="Department" Type="varchar" Mode="In" />
+    <Parameter Name="Operation" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_EmployeeDesignation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DesignationID" Type="int" Mode="In" />
+    <Parameter Name="Designation" Type="varchar" Mode="In" />
+    <Parameter Name="Operation" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_EmployeeDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+    <Parameter Name="Photo" Type="varchar" Mode="In" />
+    <Parameter Name="FirstName" Type="varchar" Mode="In" />
+    <Parameter Name="LastName" Type="varchar" Mode="In" />
+    <Parameter Name="DateofBirth" Type="date" Mode="In" />
+    <Parameter Name="Gender" Type="varchar" Mode="In" />
+    <Parameter Name="PersonalEmail" Type="varchar" Mode="In" />
+    <Parameter Name="OfficialEmail" Type="varchar" Mode="In" />
+    <Parameter Name="PhoneNo" Type="varchar" Mode="In" />
+    <Parameter Name="EmergencyContactNo" Type="varchar" Mode="In" />
+    <Parameter Name="WorkLocation" Type="varchar" Mode="In" />
+    <Parameter Name="WorkingState" Type="varchar" Mode="In" />
+    <Parameter Name="WorkingCountry" Type="varchar" Mode="In" />
+    <Parameter Name="DateofJoining" Type="date" Mode="In" />
+    <Parameter Name="Designation" Type="varchar" Mode="In" />
+    <Parameter Name="Department" Type="varchar" Mode="In" />
+    <Parameter Name="ReportingManager" Type="varchar" Mode="In" />
+    <Parameter Name="IsActive" Type="bit" Mode="In" />
+    <Parameter Name="Operation" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_EmployeeDocument" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+    <Parameter Name="DocumentImage" Type="varchar" Mode="In" />
+    <Parameter Name="DocumentName" Type="varchar" Mode="In" />
+    <Parameter Name="Operation" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_EmployeeDocumentMaster" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DocumentID" Type="int" Mode="In" />
+    <Parameter Name="DocumentName" Type="varchar" Mode="In" />
+    <Parameter Name="Operation" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_EmployeeEducationDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EducationID" Type="int" Mode="In" />
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+    <Parameter Name="Degree" Type="varchar" Mode="In" />
+    <Parameter Name="Institution" Type="varchar" Mode="In" />
+    <Parameter Name="State" Type="varchar" Mode="In" />
+    <Parameter Name="StartDate" Type="date" Mode="In" />
+    <Parameter Name="EndDate" Type="date" Mode="In" />
+    <Parameter Name="DegreeType" Type="varchar" Mode="In" />
+    <Parameter Name="Percentage" Type="decimal" Mode="In" />
+    <Parameter Name="Operation" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_EmployeeExpereince" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ExperienceID" Type="int" Mode="In" />
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+    <Parameter Name="CompanyName" Type="varchar" Mode="In" />
+    <Parameter Name="JobTitle" Type="varchar" Mode="In" />
+    <Parameter Name="StartDate" Type="date" Mode="In" />
+    <Parameter Name="EndDate" Type="date" Mode="In" />
+    <Parameter Name="Operation" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_EmployeeSalaryStructure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalaryID" Type="int" Mode="In" />
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+    <Parameter Name="BasicSalary" Type="decimal" Mode="In" />
+    <Parameter Name="HRA" Type="decimal" Mode="In" />
+    <Parameter Name="DA" Type="decimal" Mode="In" />
+    <Parameter Name="TA" Type="decimal" Mode="In" />
+    <Parameter Name="OtherAllowances" Type="decimal" Mode="In" />
+    <Parameter Name="Deductions" Type="decimal" Mode="In" />
+    <Parameter Name="NetSalary" Type="decimal" Mode="In" />
+    <Parameter Name="Operation" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_LoginCredentials" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LoginId" Type="int" Mode="In" />
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+    <Parameter Name="EmployeeEmail" Type="varchar" Mode="In" />
+    <Parameter Name="EmployeePassword" Type="varchar" Mode="In" />
+    <Parameter Name="Operation" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="EmployeeManagementtModelStoreContainer">
+    <EntitySet Name="EmployeeAddress" EntityType="Self.EmployeeAddress" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeDepartment" EntityType="Self.EmployeeDepartment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeDesignation" EntityType="Self.EmployeeDesignation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeDetails" EntityType="Self.EmployeeDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeDocumentMaster" EntityType="Self.EmployeeDocumentMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeDocuments" EntityType="Self.EmployeeDocuments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeEducationDetails" EntityType="Self.EmployeeEducationDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeExperience" EntityType="Self.EmployeeExperience" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeLoginCredentials" EntityType="Self.EmployeeLoginCredentials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeeSalaryStructure" EntityType="Self.EmployeeSalaryStructure" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__EmployeeA__IsPer__382F5661" Association="Self.FK__EmployeeA__IsPer__382F5661">
+      <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
+      <End Role="EmployeeAddress" EntitySet="EmployeeAddress" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EmployeeD__Docum__3DE82FB7" Association="Self.FK__EmployeeD__Docum__3DE82FB7">
+      <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
+      <End Role="EmployeeDocuments" EntitySet="EmployeeDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EmployeeE__EndDa__40C49C62" Association="Self.FK__EmployeeE__EndDa__40C49C62">
+      <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
+      <End Role="EmployeeExperience" EntitySet="EmployeeExperience" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EmployeeE__Perce__3B0BC30C" Association="Self.FK__EmployeeE__Perce__3B0BC30C">
+      <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
+      <End Role="EmployeeEducationDetails" EntitySet="EmployeeEducationDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EmployeeL__Emplo__4E1E9780" Association="Self.FK__EmployeeL__Emplo__4E1E9780">
+      <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
+      <End Role="EmployeeLoginCredentials" EntitySet="EmployeeLoginCredentials" />
+    </AssociationSet>
+    <AssociationSet Name="FK__EmployeeS__NetSa__336AA144" Association="Self.FK__EmployeeS__NetSa__336AA144">
+      <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
+      <End Role="EmployeeSalaryStructure" EntitySet="EmployeeSalaryStructure" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
