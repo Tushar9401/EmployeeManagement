@@ -15,10 +15,10 @@ namespace EmployeeManagementt
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class EmployeeManagementtEntities : DbContext
+    public partial class EmployeeManagementEntities : DbContext
     {
-        public EmployeeManagementtEntities()
-            : base("name=EmployeeManagementtEntities")
+        public EmployeeManagementEntities()
+            : base("name=EmployeeManagementEntities")
         {
         }
     
@@ -95,7 +95,7 @@ namespace EmployeeManagementt
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_EmployeeAddress_Result>("usp_EmployeeAddress", addressIDParameter, employeeIDParameter, addressLine1Parameter, addressLine2Parameter, postalCodeParameter, cityParameter, stateParameter, countryParameter, isCurrentParameter, isPermanentParameter, createdByParameter, updatedByParameter, operationParameter);
         }
     
-        public virtual ObjectResult<string> usp_EmployeeDepartment(Nullable<int> departmentID, string department, Nullable<int> createdBy, Nullable<int> updatedBy, string operation)
+        public virtual ObjectResult<string> usp_EmployeeDepartment(Nullable<int> departmentID, string department, string operation)
         {
             var departmentIDParameter = departmentID.HasValue ?
                 new ObjectParameter("DepartmentID", departmentID) :
@@ -105,22 +105,14 @@ namespace EmployeeManagementt
                 new ObjectParameter("Department", department) :
                 new ObjectParameter("Department", typeof(string));
     
-            var createdByParameter = createdBy.HasValue ?
-                new ObjectParameter("CreatedBy", createdBy) :
-                new ObjectParameter("CreatedBy", typeof(int));
-    
-            var updatedByParameter = updatedBy.HasValue ?
-                new ObjectParameter("UpdatedBy", updatedBy) :
-                new ObjectParameter("UpdatedBy", typeof(int));
-    
             var operationParameter = operation != null ?
                 new ObjectParameter("Operation", operation) :
                 new ObjectParameter("Operation", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("usp_EmployeeDepartment", departmentIDParameter, departmentParameter, createdByParameter, updatedByParameter, operationParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("usp_EmployeeDepartment", departmentIDParameter, departmentParameter, operationParameter);
         }
     
-        public virtual ObjectResult<string> usp_EmployeeDesignation(Nullable<int> designationID, string designation, Nullable<int> createdBy, Nullable<int> updatedBy, string operation)
+        public virtual ObjectResult<string> usp_EmployeeDesignation(Nullable<int> designationID, string designation, string operation)
         {
             var designationIDParameter = designationID.HasValue ?
                 new ObjectParameter("DesignationID", designationID) :
@@ -130,22 +122,14 @@ namespace EmployeeManagementt
                 new ObjectParameter("Designation", designation) :
                 new ObjectParameter("Designation", typeof(string));
     
-            var createdByParameter = createdBy.HasValue ?
-                new ObjectParameter("CreatedBy", createdBy) :
-                new ObjectParameter("CreatedBy", typeof(int));
-    
-            var updatedByParameter = updatedBy.HasValue ?
-                new ObjectParameter("UpdatedBy", updatedBy) :
-                new ObjectParameter("UpdatedBy", typeof(int));
-    
             var operationParameter = operation != null ?
                 new ObjectParameter("Operation", operation) :
                 new ObjectParameter("Operation", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("usp_EmployeeDesignation", designationIDParameter, designationParameter, createdByParameter, updatedByParameter, operationParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("usp_EmployeeDesignation", designationIDParameter, designationParameter, operationParameter);
         }
     
-        public virtual ObjectResult<usp_EmployeeDetails_Result> usp_EmployeeDetails(Nullable<int> employeeID, string photo, string firstName, string lastName, Nullable<System.DateTime> dateofBirth, string gender, string personalEmail, string officialEmail, string phoneNo, string emergencyContactNo, string workLocation, string workingState, string workingCountry, Nullable<System.DateTime> dateofJoining, string designation, string department, string reportingManager, Nullable<bool> isActive, Nullable<int> createdBy, Nullable<int> updatedBy, string operation)
+        public virtual ObjectResult<usp_EmployeeDetails_Result> usp_EmployeeDetails(Nullable<int> employeeID, string photo, string firstName, string lastName, Nullable<System.DateTime> dateofBirth, string gender, string personalEmail, string officialEmail, string phoneNo, string emergencyContactNo, string workLocation, string workingState, string workingCountry, Nullable<System.DateTime> dateofJoining, string designation, string department, string reportingManager, Nullable<bool> isActive, Nullable<int> createdBy, Nullable<int> updatedBy, string roles, string operation)
         {
             var employeeIDParameter = employeeID.HasValue ?
                 new ObjectParameter("EmployeeID", employeeID) :
@@ -227,11 +211,15 @@ namespace EmployeeManagementt
                 new ObjectParameter("UpdatedBy", updatedBy) :
                 new ObjectParameter("UpdatedBy", typeof(int));
     
+            var rolesParameter = roles != null ?
+                new ObjectParameter("Roles", roles) :
+                new ObjectParameter("Roles", typeof(string));
+    
             var operationParameter = operation != null ?
                 new ObjectParameter("Operation", operation) :
                 new ObjectParameter("Operation", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_EmployeeDetails_Result>("usp_EmployeeDetails", employeeIDParameter, photoParameter, firstNameParameter, lastNameParameter, dateofBirthParameter, genderParameter, personalEmailParameter, officialEmailParameter, phoneNoParameter, emergencyContactNoParameter, workLocationParameter, workingStateParameter, workingCountryParameter, dateofJoiningParameter, designationParameter, departmentParameter, reportingManagerParameter, isActiveParameter, createdByParameter, updatedByParameter, operationParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_EmployeeDetails_Result>("usp_EmployeeDetails", employeeIDParameter, photoParameter, firstNameParameter, lastNameParameter, dateofBirthParameter, genderParameter, personalEmailParameter, officialEmailParameter, phoneNoParameter, emergencyContactNoParameter, workLocationParameter, workingStateParameter, workingCountryParameter, dateofJoiningParameter, designationParameter, departmentParameter, reportingManagerParameter, isActiveParameter, createdByParameter, updatedByParameter, rolesParameter, operationParameter);
         }
     
         public virtual ObjectResult<usp_EmployeeDocument_Result> usp_EmployeeDocument(Nullable<int> employeeID, string documentImage, string documentName, Nullable<int> createdBy, Nullable<int> updatedBy, string operation)
@@ -382,7 +370,7 @@ namespace EmployeeManagementt
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_EmployeeExperience_Result>("usp_EmployeeExperience", experienceIDParameter, employeeIDParameter, companyNameParameter, jobTitleParameter, startDateParameter, endDateParameter, createdByParameter, updatedByParameter, operationParameter);
         }
     
-        public virtual int usp_EmployeeLoginCredentials(Nullable<int> loginId, Nullable<int> employeeID, string employeeEmail, string employeePassword, Nullable<int> createdBy, Nullable<int> updatedBy, string operation)
+        public virtual ObjectResult<usp_EmployeeLoginCredentials_Result> usp_EmployeeLoginCredentials(Nullable<int> loginId, Nullable<int> employeeID, string employeeEmail, string employeePassword, Nullable<int> createdBy, Nullable<int> updatedBy, string roles, string operation)
         {
             var loginIdParameter = loginId.HasValue ?
                 new ObjectParameter("LoginId", loginId) :
@@ -408,11 +396,15 @@ namespace EmployeeManagementt
                 new ObjectParameter("UpdatedBy", updatedBy) :
                 new ObjectParameter("UpdatedBy", typeof(int));
     
+            var rolesParameter = roles != null ?
+                new ObjectParameter("Roles", roles) :
+                new ObjectParameter("Roles", typeof(string));
+    
             var operationParameter = operation != null ?
                 new ObjectParameter("Operation", operation) :
                 new ObjectParameter("Operation", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("usp_EmployeeLoginCredentials", loginIdParameter, employeeIDParameter, employeeEmailParameter, employeePasswordParameter, createdByParameter, updatedByParameter, operationParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_EmployeeLoginCredentials_Result>("usp_EmployeeLoginCredentials", loginIdParameter, employeeIDParameter, employeeEmailParameter, employeePasswordParameter, createdByParameter, updatedByParameter, rolesParameter, operationParameter);
         }
     
         public virtual ObjectResult<usp_EmployeeSalaryStructure_Result> usp_EmployeeSalaryStructure(Nullable<int> salaryID, Nullable<int> employeeID, Nullable<decimal> basicSalary, Nullable<decimal> hRA, Nullable<decimal> dA, Nullable<decimal> tA, Nullable<decimal> otherAllowances, Nullable<decimal> deductions, Nullable<decimal> netSalary, Nullable<int> createdBy, Nullable<int> updatedBy, string operation)

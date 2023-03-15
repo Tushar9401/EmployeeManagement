@@ -22,7 +22,7 @@ namespace EmployeeManagementt
         public Nullable<System.DateTime> EndDate { get; set; }
         public System.DateTime CreatedDate { get; set; }
         public int CreatedBy { get; set; }
-        public Nullable<System.DateTime> UpdateDate { get; set; }
+        public Nullable<System.DateTime> UpdatedDate { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
     
         public virtual EmployeeDetail EmployeeDetail { get; set; }

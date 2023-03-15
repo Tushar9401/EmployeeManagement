@@ -481,39 +481,5 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
-        <member name="M:EmployeeManagementt.Controllers.EmployeeDetailController.Get">
-            <summary>
-            Get EmployeeDetails
-            </summary>
-        </member>
-        <member name="M:EmployeeManagementt.Controllers.EmployeeDetailController.Post(EmployeeManagementt.EmployeeDetail)">
-             <summary>
-             Add Employee.
-             </summary>
-             <remarks>
-             Sample request:
-             
-              {        
-               "EmployeeID": 0,
-               "Photo": "string",
-               "FirstName": "string",
-               "LastName": "string",
-               "DateofBirth": "2023-03-02 ",
-               "Gender": "string",
-               "PersonalEmail": "string",
-               "OfficialEmail": "string",
-               "PhoneNO": "string",
-               "EmergencyContactNo": "string",
-               "WorkLocation": "string",
-               "WorkingState": "string",
-                "WorkingCountry": "string",
-               "Dateofjoining": "2023-03-02",
-               "Designation": "string",
-               "Department": "string",
-               "ReportingManager": "string",
-               "IsActive": true,
-            }
-             </remarks>
-        </member>
     </members>
 </doc>

@@ -19,8 +19,8 @@ namespace EmployeeManagementt
         {
             this.EmployeeAddresses = new HashSet<EmployeeAddress>();
             this.EmployeeDocuments = new HashSet<EmployeeDocument>();
-            this.EmployeeExperiences = new HashSet<EmployeeExperience>();
             this.EmployeeEducationDetails = new HashSet<EmployeeEducationDetail>();
+            this.EmployeeExperiences = new HashSet<EmployeeExperience>();
             this.EmployeeLoginCredentials = new HashSet<EmployeeLoginCredential>();
             this.EmployeeSalaryStructures = new HashSet<EmployeeSalaryStructure>();
         }
@@ -43,9 +43,10 @@ namespace EmployeeManagementt
         public string Department { get; set; }
         public string ReportingManager { get; set; }
         public bool IsActive { get; set; }
+        public string Roles { get; set; }
         public System.DateTime CreatedDate { get; set; }
         public int CreatedBy { get; set; }
-        public Nullable<System.DateTime> UpdateDate { get; set; }
+        public Nullable<System.DateTime> UpdatedDate { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -53,9 +54,9 @@ namespace EmployeeManagementt
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmployeeDocument> EmployeeDocuments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EmployeeExperience> EmployeeExperiences { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmployeeEducationDetail> EmployeeEducationDetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EmployeeExperience> EmployeeExperiences { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EmployeeLoginCredential> EmployeeLoginCredentials { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

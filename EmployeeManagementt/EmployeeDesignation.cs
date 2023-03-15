@@ -16,9 +16,5 @@ namespace EmployeeManagementt
     {
         public int DesignationID { get; set; }
         public string Designation { get; set; }
-        public System.DateTime CreatedDate { get; set; }
-        public int CreatedBy { get; set; }
-        public Nullable<System.DateTime> UpdateDate { get; set; }
-        public Nullable<int> UpdatedBy { get; set; }
     }
 }

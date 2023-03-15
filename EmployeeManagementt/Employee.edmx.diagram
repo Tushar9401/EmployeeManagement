@@ -4,23 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="066962aa60f54e81914e40620e8e345e" Name="Diagram1">
-        <EntityTypeShape EntityType="EmployeeManagementtModel.EmployeeAddress" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="EmployeeManagementtModel.EmployeeDepartment" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EmployeeManagementtModel.EmployeeDesignation" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EmployeeManagementtModel.EmployeeDetail" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="EmployeeManagementtModel.EmployeeDocumentMaster" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EmployeeManagementtModel.EmployeeDocument" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="EmployeeManagementtModel.EmployeeEducationDetail" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="EmployeeManagementtModel.EmployeeExperience" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="EmployeeManagementtModel.EmployeeLoginCredential" Width="1.5" PointX="3" PointY="18.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="EmployeeManagementtModel.EmployeeSalaryStructure" Width="1.5" PointX="3" PointY="22" IsExpanded="true" />
-        <AssociationConnector Association="EmployeeManagementtModel.FK__EmployeeA__IsPer__382F5661" ManuallyRouted="false" />
-        <AssociationConnector Association="EmployeeManagementtModel.FK__EmployeeD__Docum__3DE82FB7" ManuallyRouted="false" />
-        <AssociationConnector Association="EmployeeManagementtModel.FK__EmployeeE__EndDa__40C49C62" ManuallyRouted="false" />
-        <AssociationConnector Association="EmployeeManagementtModel.FK__EmployeeE__Perce__3B0BC30C" ManuallyRouted="false" />
-        <AssociationConnector Association="EmployeeManagementtModel.FK__EmployeeL__Emplo__4E1E9780" ManuallyRouted="false" />
-        <AssociationConnector Association="EmployeeManagementtModel.FK__EmployeeS__NetSa__336AA144" ManuallyRouted="false" />
+      <Diagram DiagramId="9c21df38e82848c1937d30fe12c5b8c9" Name="Diagram1">
+        <EntityTypeShape EntityType="EmployeeManagementModel.EmployeeAddress" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.EmployeeDepartment" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.EmployeeDesignation" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.EmployeeDetail" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.EmployeeDocumentMaster" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.EmployeeDocument" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.EmployeeEducationDetail" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.EmployeeExperience" Width="1.5" PointX="3" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.EmployeeLoginCredential" Width="1.5" PointX="3" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EmployeeManagementModel.EmployeeSalaryStructure" Width="1.5" PointX="3" PointY="22.25" IsExpanded="true" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__EmployeeA__Updat__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__EmployeeD__Updat__797309D9" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__EmployeeE__Updat__72C60C4A" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__EmployeeE__Updat__7C4F7684" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__EmployeeL__Updat__76969D2E" ManuallyRouted="false" />
+        <AssociationConnector Association="EmployeeManagementModel.FK__EmployeeS__Updat__693CA210" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

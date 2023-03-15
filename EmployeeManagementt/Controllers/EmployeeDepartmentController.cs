@@ -9,33 +9,62 @@ namespace EmployeeManagementt.Controllers
 {
     public class EmployeeDepartmentController : ApiController
     {
-        EmployeeManagementtEntities entity = new EmployeeManagementtEntities();
+        EmployeeManagementEntities entity = new EmployeeManagementEntities();
 
+       
         //To Get All The Departments.
         public IHttpActionResult Get()
         {
-            var result = entity.sp_EmployeeDepartment(0, "",0,0, "GET");
-            return Ok(result);
+            try
+            {
+                var result = entity.usp_EmployeeDepartment(0, "",  "GET");
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);  
+            }
         }
 
         //To Insert A New Department
-        public IHttpActionResult Post(EmployeeDepartment emp)
+        public IHttpActionResult Post([FromBody] EmployeeDepartment emp)
         {
-            var result = entity.usp_EmployeeDepartment(emp.DepartmentID, emp.Department,0, 0, "Insert");
-            return Ok(result);
+            try
+            {
+                var result = entity.usp_EmployeeDepartment(0,emp.Department, "Insert");
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
         //To Update A Department.
-        public IHttpActionResult Put(EmployeeDepartment emp)
+        public IHttpActionResult Put([FromBody] EmployeeDepartment emp)
         {
-            var result = entity.usp_EmployeeDepartment(emp.DepartmentID, emp.Department, 0, 0, "Update");
-            return Ok(result);
+            try
+            {
+                var result = entity.usp_EmployeeDepartment(emp.DepartmentID, emp.Department, "Update");
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         //To Delete A Department.
-        public IHttpActionResult Delete(EmployeeDepartment emp)
+        public IHttpActionResult Delete([FromBody] EmployeeDepartment emp)
         {
-            var result = entity.usp_EmployeeDepartment(0, emp.Department, 0, 0, "DELETE");
-            return Ok(result);
+            try
+            {
+                var result = entity.usp_EmployeeDepartment(0, emp.Department,"DELETE");
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

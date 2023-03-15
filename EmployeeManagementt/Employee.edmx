@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="EmployeeManagementtModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="EmployeeManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="EmployeeAddress">
           <Key>
             <PropertyRef Name="AddressID" />
@@ -19,9 +19,9 @@
           <Property Name="Country" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="IsCurrent" Type="bit" Nullable="false" />
           <Property Name="IsPermanent" Type="bit" Nullable="false" />
-          <Property Name="CreatedDate" Type="date" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="int" Nullable="false" />
-          <Property Name="UpdateDate" Type="date" />
+          <Property Name="UpdatedDate" Type="datetime" />
           <Property Name="UpdatedBy" Type="int" />
         </EntityType>
         <EntityType Name="EmployeeDepartment">
@@ -30,10 +30,6 @@
           </Key>
           <Property Name="DepartmentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Department" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="CreatedDate" Type="date" Nullable="false" />
-          <Property Name="CreatedBy" Type="int" Nullable="false" />
-          <Property Name="UpdateDate" Type="date" />
-          <Property Name="UpdatedBy" Type="int" />
         </EntityType>
         <EntityType Name="EmployeeDesignation">
           <Key>
@@ -41,10 +37,6 @@
           </Key>
           <Property Name="DesignationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Designation" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="CreatedDate" Type="date" Nullable="false" />
-          <Property Name="CreatedBy" Type="int" Nullable="false" />
-          <Property Name="UpdateDate" Type="date" />
-          <Property Name="UpdatedBy" Type="int" />
         </EntityType>
         <EntityType Name="EmployeeDetails">
           <Key>
@@ -68,9 +60,10 @@
           <Property Name="Department" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="ReportingManager" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
-          <Property Name="CreatedDate" Type="date" Nullable="false" />
+          <Property Name="Roles" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="int" Nullable="false" />
-          <Property Name="UpdateDate" Type="date" />
+          <Property Name="UpdatedDate" Type="datetime" />
           <Property Name="UpdatedBy" Type="int" />
         </EntityType>
         <EntityType Name="EmployeeDocumentMaster">
@@ -79,10 +72,6 @@
           </Key>
           <Property Name="DocumentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DocumentName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="CreatedDate" Type="date" Nullable="false" />
-          <Property Name="CreatedBy" Type="int" Nullable="false" />
-          <Property Name="UpdateDate" Type="date" />
-          <Property Name="UpdatedBy" Type="int" />
         </EntityType>
         <EntityType Name="EmployeeDocuments">
           <Key>
@@ -92,9 +81,9 @@
           <Property Name="EmployeeID" Type="int" Nullable="false" />
           <Property Name="DocumentImage" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="DocumentName" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="CreatedDate" Type="date" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="int" Nullable="false" />
-          <Property Name="UpdateDate" Type="date" />
+          <Property Name="UpdatedDate" Type="datetime" />
           <Property Name="UpdatedBy" Type="int" />
         </EntityType>
         <EntityType Name="EmployeeEducationDetails">
@@ -109,10 +98,10 @@
           <Property Name="StartDate" Type="date" Nullable="false" />
           <Property Name="EndDate" Type="date" Nullable="false" />
           <Property Name="DegreeType" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="Percentage" Type="decimal" Precision="3" Scale="2" Nullable="false" />
-          <Property Name="CreatedDate" Type="date" Nullable="false" />
+          <Property Name="Percentage" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="int" Nullable="false" />
-          <Property Name="UpdateDate" Type="date" />
+          <Property Name="UpdatedDate" Type="datetime" />
           <Property Name="UpdatedBy" Type="int" />
         </EntityType>
         <EntityType Name="EmployeeExperience">
@@ -125,9 +114,9 @@
           <Property Name="JobTitle" Type="varchar" MaxLength="50" />
           <Property Name="StartDate" Type="date" />
           <Property Name="EndDate" Type="date" />
-          <Property Name="CreatedDate" Type="date" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="int" Nullable="false" />
-          <Property Name="UpdateDate" Type="date" />
+          <Property Name="UpdatedDate" Type="datetime" />
           <Property Name="UpdatedBy" Type="int" />
         </EntityType>
         <EntityType Name="EmployeeLoginCredentials">
@@ -138,9 +127,10 @@
           <Property Name="EmployeeID" Type="int" />
           <Property Name="EmployeeEmail" Type="varchar" MaxLength="320" Nullable="false" />
           <Property Name="EmployeePassword" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="CreatedDate" Type="date" Nullable="false" />
+          <Property Name="Role" Type="varchar" MaxLength="20" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="int" Nullable="false" />
-          <Property Name="UpdateDate" Type="date" />
+          <Property Name="UpdatedDate" Type="datetime" />
           <Property Name="UpdatedBy" Type="int" />
         </EntityType>
         <EntityType Name="EmployeeSalaryStructure">
@@ -156,12 +146,12 @@
           <Property Name="OtherAllowances" Type="decimal" Precision="10" Scale="2" />
           <Property Name="Deductions" Type="decimal" Precision="10" Scale="2" />
           <Property Name="NetSalary" Type="decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="CreatedDate" Type="date" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="CreatedBy" Type="int" Nullable="false" />
-          <Property Name="UpdateDate" Type="date" />
+          <Property Name="UpdatedDate" Type="datetime" />
           <Property Name="UpdatedBy" Type="int" />
         </EntityType>
-        <Association Name="FK__EmployeeA__IsPer__382F5661">
+        <Association Name="FK__EmployeeA__Updat__6FE99F9F">
           <End Role="EmployeeDetails" Type="Self.EmployeeDetails" Multiplicity="1" />
           <End Role="EmployeeAddress" Type="Self.EmployeeAddress" Multiplicity="*" />
           <ReferentialConstraint>
@@ -173,7 +163,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__EmployeeD__Docum__3DE82FB7">
+        <Association Name="FK__EmployeeD__Updat__797309D9">
           <End Role="EmployeeDetails" Type="Self.EmployeeDetails" Multiplicity="1" />
           <End Role="EmployeeDocuments" Type="Self.EmployeeDocuments" Multiplicity="*" />
           <ReferentialConstraint>
@@ -185,19 +175,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__EmployeeE__EndDa__40C49C62">
-          <End Role="EmployeeDetails" Type="Self.EmployeeDetails" Multiplicity="1" />
-          <End Role="EmployeeExperience" Type="Self.EmployeeExperience" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmployeeDetails">
-              <PropertyRef Name="EmployeeID" />
-            </Principal>
-            <Dependent Role="EmployeeExperience">
-              <PropertyRef Name="EmployeeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__EmployeeE__Perce__3B0BC30C">
+        <Association Name="FK__EmployeeE__Updat__72C60C4A">
           <End Role="EmployeeDetails" Type="Self.EmployeeDetails" Multiplicity="1" />
           <End Role="EmployeeEducationDetails" Type="Self.EmployeeEducationDetails" Multiplicity="*" />
           <ReferentialConstraint>
@@ -209,7 +187,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__EmployeeL__Emplo__4E1E9780">
+        <Association Name="FK__EmployeeE__Updat__7C4F7684">
+          <End Role="EmployeeDetails" Type="Self.EmployeeDetails" Multiplicity="1" />
+          <End Role="EmployeeExperience" Type="Self.EmployeeExperience" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeDetails">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="EmployeeExperience">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmployeeL__Updat__76969D2E">
           <End Role="EmployeeDetails" Type="Self.EmployeeDetails" Multiplicity="0..1" />
           <End Role="EmployeeLoginCredentials" Type="Self.EmployeeLoginCredentials" Multiplicity="*" />
           <ReferentialConstraint>
@@ -221,7 +211,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__EmployeeS__NetSa__336AA144">
+        <Association Name="FK__EmployeeS__Updat__693CA210">
           <End Role="EmployeeDetails" Type="Self.EmployeeDetails" Multiplicity="1" />
           <End Role="EmployeeSalaryStructure" Type="Self.EmployeeSalaryStructure" Multiplicity="*" />
           <ReferentialConstraint>
@@ -251,15 +241,11 @@
         <Function Name="usp_EmployeeDepartment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="DepartmentID" Type="int" Mode="In" />
           <Parameter Name="Department" Type="varchar" Mode="In" />
-          <Parameter Name="CreatedBy" Type="int" Mode="In" />
-          <Parameter Name="UpdatedBy" Type="int" Mode="In" />
           <Parameter Name="Operation" Type="varchar" Mode="In" />
         </Function>
         <Function Name="usp_EmployeeDesignation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="DesignationID" Type="int" Mode="In" />
           <Parameter Name="Designation" Type="varchar" Mode="In" />
-          <Parameter Name="CreatedBy" Type="int" Mode="In" />
-          <Parameter Name="UpdatedBy" Type="int" Mode="In" />
           <Parameter Name="Operation" Type="varchar" Mode="In" />
         </Function>
         <Function Name="usp_EmployeeDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -283,6 +269,7 @@
           <Parameter Name="IsActive" Type="bit" Mode="In" />
           <Parameter Name="CreatedBy" Type="int" Mode="In" />
           <Parameter Name="UpdatedBy" Type="int" Mode="In" />
+          <Parameter Name="Roles" Type="varchar" Mode="In" />
           <Parameter Name="Operation" Type="varchar" Mode="In" />
         </Function>
         <Function Name="usp_EmployeeDocument" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -332,6 +319,7 @@
           <Parameter Name="EmployeePassword" Type="varchar" Mode="In" />
           <Parameter Name="CreatedBy" Type="int" Mode="In" />
           <Parameter Name="UpdatedBy" Type="int" Mode="In" />
+          <Parameter Name="Roles" Type="varchar" Mode="In" />
           <Parameter Name="Operation" Type="varchar" Mode="In" />
         </Function>
         <Function Name="usp_EmployeeSalaryStructure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -348,7 +336,7 @@
           <Parameter Name="UpdatedBy" Type="int" Mode="In" />
           <Parameter Name="Operation" Type="varchar" Mode="In" />
         </Function>
-        <EntityContainer Name="EmployeeManagementtModelStoreContainer">
+        <EntityContainer Name="EmployeeManagementModelStoreContainer">
           <EntitySet Name="EmployeeAddress" EntityType="Self.EmployeeAddress" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmployeeDepartment" EntityType="Self.EmployeeDepartment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmployeeDesignation" EntityType="Self.EmployeeDesignation" Schema="dbo" store:Type="Tables" />
@@ -359,27 +347,27 @@
           <EntitySet Name="EmployeeExperience" EntityType="Self.EmployeeExperience" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmployeeLoginCredentials" EntityType="Self.EmployeeLoginCredentials" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmployeeSalaryStructure" EntityType="Self.EmployeeSalaryStructure" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__EmployeeA__IsPer__382F5661" Association="Self.FK__EmployeeA__IsPer__382F5661">
+          <AssociationSet Name="FK__EmployeeA__Updat__6FE99F9F" Association="Self.FK__EmployeeA__Updat__6FE99F9F">
             <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
             <End Role="EmployeeAddress" EntitySet="EmployeeAddress" />
           </AssociationSet>
-          <AssociationSet Name="FK__EmployeeD__Docum__3DE82FB7" Association="Self.FK__EmployeeD__Docum__3DE82FB7">
+          <AssociationSet Name="FK__EmployeeD__Updat__797309D9" Association="Self.FK__EmployeeD__Updat__797309D9">
             <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
             <End Role="EmployeeDocuments" EntitySet="EmployeeDocuments" />
           </AssociationSet>
-          <AssociationSet Name="FK__EmployeeE__EndDa__40C49C62" Association="Self.FK__EmployeeE__EndDa__40C49C62">
-            <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
-            <End Role="EmployeeExperience" EntitySet="EmployeeExperience" />
-          </AssociationSet>
-          <AssociationSet Name="FK__EmployeeE__Perce__3B0BC30C" Association="Self.FK__EmployeeE__Perce__3B0BC30C">
+          <AssociationSet Name="FK__EmployeeE__Updat__72C60C4A" Association="Self.FK__EmployeeE__Updat__72C60C4A">
             <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
             <End Role="EmployeeEducationDetails" EntitySet="EmployeeEducationDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__EmployeeL__Emplo__4E1E9780" Association="Self.FK__EmployeeL__Emplo__4E1E9780">
+          <AssociationSet Name="FK__EmployeeE__Updat__7C4F7684" Association="Self.FK__EmployeeE__Updat__7C4F7684">
+            <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
+            <End Role="EmployeeExperience" EntitySet="EmployeeExperience" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmployeeL__Updat__76969D2E" Association="Self.FK__EmployeeL__Updat__76969D2E">
             <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
             <End Role="EmployeeLoginCredentials" EntitySet="EmployeeLoginCredentials" />
           </AssociationSet>
-          <AssociationSet Name="FK__EmployeeS__NetSa__336AA144" Association="Self.FK__EmployeeS__NetSa__336AA144">
+          <AssociationSet Name="FK__EmployeeS__Updat__693CA210" Association="Self.FK__EmployeeS__Updat__693CA210">
             <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
             <End Role="EmployeeSalaryStructure" EntitySet="EmployeeSalaryStructure" />
           </AssociationSet>
@@ -388,7 +376,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="EmployeeManagementtModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="EmployeeManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="EmployeeAddress">
           <Key>
             <PropertyRef Name="AddressID" />
@@ -403,11 +391,11 @@
           <Property Name="Country" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IsCurrent" Type="Boolean" Nullable="false" />
           <Property Name="IsPermanent" Type="Boolean" Nullable="false" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatedBy" Type="Int32" Nullable="false" />
-          <Property Name="UpdateDate" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="Int32" />
-          <NavigationProperty Name="EmployeeDetail" Relationship="Self.FK__EmployeeA__IsPer__382F5661" FromRole="EmployeeAddress" ToRole="EmployeeDetails" />
+          <NavigationProperty Name="EmployeeDetail" Relationship="Self.FK__EmployeeA__Updat__6FE99F9F" FromRole="EmployeeAddress" ToRole="EmployeeDetails" />
         </EntityType>
         <EntityType Name="EmployeeDepartment">
           <Key>
@@ -415,10 +403,6 @@
           </Key>
           <Property Name="DepartmentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
-          <Property Name="UpdateDate" Type="DateTime" Precision="0" />
-          <Property Name="UpdatedBy" Type="Int32" />
         </EntityType>
         <EntityType Name="EmployeeDesignation">
           <Key>
@@ -426,10 +410,6 @@
           </Key>
           <Property Name="DesignationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
-          <Property Name="UpdateDate" Type="DateTime" Precision="0" />
-          <Property Name="UpdatedBy" Type="Int32" />
         </EntityType>
         <EntityType Name="EmployeeDetail">
           <Key>
@@ -453,16 +433,17 @@
           <Property Name="Department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ReportingManager" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Roles" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatedBy" Type="Int32" Nullable="false" />
-          <Property Name="UpdateDate" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="Int32" />
-          <NavigationProperty Name="EmployeeAddresses" Relationship="Self.FK__EmployeeA__IsPer__382F5661" FromRole="EmployeeDetails" ToRole="EmployeeAddress" />
-          <NavigationProperty Name="EmployeeDocuments" Relationship="Self.FK__EmployeeD__Docum__3DE82FB7" FromRole="EmployeeDetails" ToRole="EmployeeDocuments" />
-          <NavigationProperty Name="EmployeeExperiences" Relationship="Self.FK__EmployeeE__EndDa__40C49C62" FromRole="EmployeeDetails" ToRole="EmployeeExperience" />
-          <NavigationProperty Name="EmployeeEducationDetails" Relationship="Self.FK__EmployeeE__Perce__3B0BC30C" FromRole="EmployeeDetails" ToRole="EmployeeEducationDetails" />
-          <NavigationProperty Name="EmployeeLoginCredentials" Relationship="Self.FK__EmployeeL__Emplo__4E1E9780" FromRole="EmployeeDetails" ToRole="EmployeeLoginCredentials" />
-          <NavigationProperty Name="EmployeeSalaryStructures" Relationship="Self.FK__EmployeeS__NetSa__336AA144" FromRole="EmployeeDetails" ToRole="EmployeeSalaryStructure" />
+          <NavigationProperty Name="EmployeeAddresses" Relationship="Self.FK__EmployeeA__Updat__6FE99F9F" FromRole="EmployeeDetails" ToRole="EmployeeAddress" />
+          <NavigationProperty Name="EmployeeDocuments" Relationship="Self.FK__EmployeeD__Updat__797309D9" FromRole="EmployeeDetails" ToRole="EmployeeDocuments" />
+          <NavigationProperty Name="EmployeeEducationDetails" Relationship="Self.FK__EmployeeE__Updat__72C60C4A" FromRole="EmployeeDetails" ToRole="EmployeeEducationDetails" />
+          <NavigationProperty Name="EmployeeExperiences" Relationship="Self.FK__EmployeeE__Updat__7C4F7684" FromRole="EmployeeDetails" ToRole="EmployeeExperience" />
+          <NavigationProperty Name="EmployeeLoginCredentials" Relationship="Self.FK__EmployeeL__Updat__76969D2E" FromRole="EmployeeDetails" ToRole="EmployeeLoginCredentials" />
+          <NavigationProperty Name="EmployeeSalaryStructures" Relationship="Self.FK__EmployeeS__Updat__693CA210" FromRole="EmployeeDetails" ToRole="EmployeeSalaryStructure" />
         </EntityType>
         <EntityType Name="EmployeeDocumentMaster">
           <Key>
@@ -470,10 +451,6 @@
           </Key>
           <Property Name="DocumentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DocumentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
-          <Property Name="UpdateDate" Type="DateTime" Precision="0" />
-          <Property Name="UpdatedBy" Type="Int32" />
         </EntityType>
         <EntityType Name="EmployeeDocument">
           <Key>
@@ -483,11 +460,11 @@
           <Property Name="EmployeeID" Type="Int32" Nullable="false" />
           <Property Name="DocumentImage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DocumentName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatedBy" Type="Int32" Nullable="false" />
-          <Property Name="UpdateDate" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="Int32" />
-          <NavigationProperty Name="EmployeeDetail" Relationship="Self.FK__EmployeeD__Docum__3DE82FB7" FromRole="EmployeeDocuments" ToRole="EmployeeDetails" />
+          <NavigationProperty Name="EmployeeDetail" Relationship="Self.FK__EmployeeD__Updat__797309D9" FromRole="EmployeeDocuments" ToRole="EmployeeDetails" />
         </EntityType>
         <EntityType Name="EmployeeEducationDetail">
           <Key>
@@ -501,12 +478,12 @@
           <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="DegreeType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Percentage" Type="Decimal" Precision="3" Scale="2" Nullable="false" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Percentage" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatedBy" Type="Int32" Nullable="false" />
-          <Property Name="UpdateDate" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="Int32" />
-          <NavigationProperty Name="EmployeeDetail" Relationship="Self.FK__EmployeeE__Perce__3B0BC30C" FromRole="EmployeeEducationDetails" ToRole="EmployeeDetails" />
+          <NavigationProperty Name="EmployeeDetail" Relationship="Self.FK__EmployeeE__Updat__72C60C4A" FromRole="EmployeeEducationDetails" ToRole="EmployeeDetails" />
         </EntityType>
         <EntityType Name="EmployeeExperience">
           <Key>
@@ -518,11 +495,11 @@
           <Property Name="JobTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="StartDate" Type="DateTime" Precision="0" />
           <Property Name="EndDate" Type="DateTime" Precision="0" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatedBy" Type="Int32" Nullable="false" />
-          <Property Name="UpdateDate" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="Int32" />
-          <NavigationProperty Name="EmployeeDetail" Relationship="Self.FK__EmployeeE__EndDa__40C49C62" FromRole="EmployeeExperience" ToRole="EmployeeDetails" />
+          <NavigationProperty Name="EmployeeDetail" Relationship="Self.FK__EmployeeE__Updat__7C4F7684" FromRole="EmployeeExperience" ToRole="EmployeeDetails" />
         </EntityType>
         <EntityType Name="EmployeeLoginCredential">
           <Key>
@@ -532,11 +509,12 @@
           <Property Name="EmployeeID" Type="Int32" />
           <Property Name="EmployeeEmail" Type="String" MaxLength="320" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="EmployeePassword" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Role" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatedBy" Type="Int32" Nullable="false" />
-          <Property Name="UpdateDate" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="Int32" />
-          <NavigationProperty Name="EmployeeDetail" Relationship="Self.FK__EmployeeL__Emplo__4E1E9780" FromRole="EmployeeLoginCredentials" ToRole="EmployeeDetails" />
+          <NavigationProperty Name="EmployeeDetail" Relationship="Self.FK__EmployeeL__Updat__76969D2E" FromRole="EmployeeLoginCredentials" ToRole="EmployeeDetails" />
         </EntityType>
         <EntityType Name="EmployeeSalaryStructure">
           <Key>
@@ -551,13 +529,13 @@
           <Property Name="OtherAllowances" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="Deductions" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="NetSalary" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreatedBy" Type="Int32" Nullable="false" />
-          <Property Name="UpdateDate" Type="DateTime" Precision="0" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="Int32" />
-          <NavigationProperty Name="EmployeeDetail" Relationship="Self.FK__EmployeeS__NetSa__336AA144" FromRole="EmployeeSalaryStructure" ToRole="EmployeeDetails" />
+          <NavigationProperty Name="EmployeeDetail" Relationship="Self.FK__EmployeeS__Updat__693CA210" FromRole="EmployeeSalaryStructure" ToRole="EmployeeDetails" />
         </EntityType>
-        <Association Name="FK__EmployeeA__IsPer__382F5661">
+        <Association Name="FK__EmployeeA__Updat__6FE99F9F">
           <End Role="EmployeeDetails" Type="Self.EmployeeDetail" Multiplicity="1" />
           <End Role="EmployeeAddress" Type="Self.EmployeeAddress" Multiplicity="*" />
           <ReferentialConstraint>
@@ -569,7 +547,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__EmployeeD__Docum__3DE82FB7">
+        <Association Name="FK__EmployeeD__Updat__797309D9">
           <End Role="EmployeeDetails" Type="Self.EmployeeDetail" Multiplicity="1" />
           <End Role="EmployeeDocuments" Type="Self.EmployeeDocument" Multiplicity="*" />
           <ReferentialConstraint>
@@ -581,19 +559,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__EmployeeE__EndDa__40C49C62">
-          <End Role="EmployeeDetails" Type="Self.EmployeeDetail" Multiplicity="1" />
-          <End Role="EmployeeExperience" Type="Self.EmployeeExperience" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EmployeeDetails">
-              <PropertyRef Name="EmployeeID" />
-            </Principal>
-            <Dependent Role="EmployeeExperience">
-              <PropertyRef Name="EmployeeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__EmployeeE__Perce__3B0BC30C">
+        <Association Name="FK__EmployeeE__Updat__72C60C4A">
           <End Role="EmployeeDetails" Type="Self.EmployeeDetail" Multiplicity="1" />
           <End Role="EmployeeEducationDetails" Type="Self.EmployeeEducationDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -605,7 +571,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__EmployeeL__Emplo__4E1E9780">
+        <Association Name="FK__EmployeeE__Updat__7C4F7684">
+          <End Role="EmployeeDetails" Type="Self.EmployeeDetail" Multiplicity="1" />
+          <End Role="EmployeeExperience" Type="Self.EmployeeExperience" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EmployeeDetails">
+              <PropertyRef Name="EmployeeID" />
+            </Principal>
+            <Dependent Role="EmployeeExperience">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EmployeeL__Updat__76969D2E">
           <End Role="EmployeeDetails" Type="Self.EmployeeDetail" Multiplicity="0..1" />
           <End Role="EmployeeLoginCredentials" Type="Self.EmployeeLoginCredential" Multiplicity="*" />
           <ReferentialConstraint>
@@ -617,7 +595,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__EmployeeS__NetSa__336AA144">
+        <Association Name="FK__EmployeeS__Updat__693CA210">
           <End Role="EmployeeDetails" Type="Self.EmployeeDetail" Multiplicity="1" />
           <End Role="EmployeeSalaryStructure" Type="Self.EmployeeSalaryStructure" Multiplicity="*" />
           <ReferentialConstraint>
@@ -629,7 +607,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="EmployeeManagementtEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="EmployeeManagementEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="EmployeeAddresses" EntityType="Self.EmployeeAddress" />
           <EntitySet Name="EmployeeDepartments" EntityType="Self.EmployeeDepartment" />
           <EntitySet Name="EmployeeDesignations" EntityType="Self.EmployeeDesignation" />
@@ -640,31 +618,31 @@
           <EntitySet Name="EmployeeExperiences" EntityType="Self.EmployeeExperience" />
           <EntitySet Name="EmployeeLoginCredentials" EntityType="Self.EmployeeLoginCredential" />
           <EntitySet Name="EmployeeSalaryStructures" EntityType="Self.EmployeeSalaryStructure" />
-          <AssociationSet Name="FK__EmployeeA__IsPer__382F5661" Association="Self.FK__EmployeeA__IsPer__382F5661">
+          <AssociationSet Name="FK__EmployeeA__Updat__6FE99F9F" Association="Self.FK__EmployeeA__Updat__6FE99F9F">
             <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
             <End Role="EmployeeAddress" EntitySet="EmployeeAddresses" />
           </AssociationSet>
-          <AssociationSet Name="FK__EmployeeD__Docum__3DE82FB7" Association="Self.FK__EmployeeD__Docum__3DE82FB7">
+          <AssociationSet Name="FK__EmployeeD__Updat__797309D9" Association="Self.FK__EmployeeD__Updat__797309D9">
             <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
             <End Role="EmployeeDocuments" EntitySet="EmployeeDocuments" />
           </AssociationSet>
-          <AssociationSet Name="FK__EmployeeE__EndDa__40C49C62" Association="Self.FK__EmployeeE__EndDa__40C49C62">
-            <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
-            <End Role="EmployeeExperience" EntitySet="EmployeeExperiences" />
-          </AssociationSet>
-          <AssociationSet Name="FK__EmployeeE__Perce__3B0BC30C" Association="Self.FK__EmployeeE__Perce__3B0BC30C">
+          <AssociationSet Name="FK__EmployeeE__Updat__72C60C4A" Association="Self.FK__EmployeeE__Updat__72C60C4A">
             <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
             <End Role="EmployeeEducationDetails" EntitySet="EmployeeEducationDetails" />
           </AssociationSet>
-          <AssociationSet Name="FK__EmployeeL__Emplo__4E1E9780" Association="Self.FK__EmployeeL__Emplo__4E1E9780">
+          <AssociationSet Name="FK__EmployeeE__Updat__7C4F7684" Association="Self.FK__EmployeeE__Updat__7C4F7684">
+            <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
+            <End Role="EmployeeExperience" EntitySet="EmployeeExperiences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EmployeeL__Updat__76969D2E" Association="Self.FK__EmployeeL__Updat__76969D2E">
             <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
             <End Role="EmployeeLoginCredentials" EntitySet="EmployeeLoginCredentials" />
           </AssociationSet>
-          <AssociationSet Name="FK__EmployeeS__NetSa__336AA144" Association="Self.FK__EmployeeS__NetSa__336AA144">
+          <AssociationSet Name="FK__EmployeeS__Updat__693CA210" Association="Self.FK__EmployeeS__Updat__693CA210">
             <End Role="EmployeeDetails" EntitySet="EmployeeDetails" />
             <End Role="EmployeeSalaryStructure" EntitySet="EmployeeSalaryStructures" />
           </AssociationSet>
-          <FunctionImport Name="usp_EmployeeAddress" ReturnType="Collection(EmployeeManagementtModel.usp_EmployeeAddress_Result)">
+          <FunctionImport Name="usp_EmployeeAddress" ReturnType="Collection(EmployeeManagementModel.usp_EmployeeAddress_Result)">
             <Parameter Name="AddressID" Mode="In" Type="Int32" />
             <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
             <Parameter Name="AddressLine1" Mode="In" Type="String" />
@@ -682,18 +660,14 @@
           <FunctionImport Name="usp_EmployeeDepartment" ReturnType="Collection(String)">
             <Parameter Name="DepartmentID" Mode="In" Type="Int32" />
             <Parameter Name="Department" Mode="In" Type="String" />
-            <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
-            <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
             <Parameter Name="Operation" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_EmployeeDesignation" ReturnType="Collection(String)">
             <Parameter Name="DesignationID" Mode="In" Type="Int32" />
             <Parameter Name="Designation" Mode="In" Type="String" />
-            <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
-            <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
             <Parameter Name="Operation" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="usp_EmployeeDetails" ReturnType="Collection(EmployeeManagementtModel.usp_EmployeeDetails_Result)">
+          <FunctionImport Name="usp_EmployeeDetails" ReturnType="Collection(EmployeeManagementModel.usp_EmployeeDetails_Result)">
             <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
             <Parameter Name="Photo" Mode="In" Type="String" />
             <Parameter Name="FirstName" Mode="In" Type="String" />
@@ -714,9 +688,10 @@
             <Parameter Name="IsActive" Mode="In" Type="Boolean" />
             <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
             <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
+            <Parameter Name="Roles" Mode="In" Type="String" />
             <Parameter Name="Operation" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="usp_EmployeeDocument" ReturnType="Collection(EmployeeManagementtModel.usp_EmployeeDocument_Result)">
+          <FunctionImport Name="usp_EmployeeDocument" ReturnType="Collection(EmployeeManagementModel.usp_EmployeeDocument_Result)">
             <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
             <Parameter Name="DocumentImage" Mode="In" Type="String" />
             <Parameter Name="DocumentName" Mode="In" Type="String" />
@@ -731,7 +706,7 @@
             <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
             <Parameter Name="Operation" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="usp_EmployeeEducationDetails" ReturnType="Collection(EmployeeManagementtModel.usp_EmployeeEducationDetails_Result)">
+          <FunctionImport Name="usp_EmployeeEducationDetails" ReturnType="Collection(EmployeeManagementModel.usp_EmployeeEducationDetails_Result)">
             <Parameter Name="EducationID" Mode="In" Type="Int32" />
             <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
             <Parameter Name="Degree" Mode="In" Type="String" />
@@ -745,7 +720,7 @@
             <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
             <Parameter Name="Operation" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="usp_EmployeeExperience" ReturnType="Collection(EmployeeManagementtModel.usp_EmployeeExperience_Result)">
+          <FunctionImport Name="usp_EmployeeExperience" ReturnType="Collection(EmployeeManagementModel.usp_EmployeeExperience_Result)">
             <Parameter Name="ExperienceID" Mode="In" Type="Int32" />
             <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
             <Parameter Name="CompanyName" Mode="In" Type="String" />
@@ -756,16 +731,17 @@
             <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
             <Parameter Name="Operation" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="usp_EmployeeLoginCredentials">
+          <FunctionImport Name="usp_EmployeeLoginCredentials" ReturnType="Collection(EmployeeManagementModel.usp_EmployeeLoginCredentials_Result)">
             <Parameter Name="LoginId" Mode="In" Type="Int32" />
             <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
             <Parameter Name="EmployeeEmail" Mode="In" Type="String" />
             <Parameter Name="EmployeePassword" Mode="In" Type="String" />
             <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
             <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
+            <Parameter Name="Roles" Mode="In" Type="String" />
             <Parameter Name="Operation" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="usp_EmployeeSalaryStructure" ReturnType="Collection(EmployeeManagementtModel.usp_EmployeeSalaryStructure_Result)">
+          <FunctionImport Name="usp_EmployeeSalaryStructure" ReturnType="Collection(EmployeeManagementModel.usp_EmployeeSalaryStructure_Result)">
             <Parameter Name="SalaryID" Mode="In" Type="Int32" />
             <Parameter Name="EmployeeID" Mode="In" Type="Int32" />
             <Parameter Name="BasicSalary" Mode="In" Type="Decimal" />
@@ -820,13 +796,24 @@
           <Property Type="DateTime" Name="StartDate" Nullable="false" />
           <Property Type="DateTime" Name="EndDate" Nullable="false" />
           <Property Type="String" Name="DegreeType" Nullable="false" MaxLength="50" />
-          <Property Type="Decimal" Name="Percentage" Nullable="false" Precision="3" Scale="2" />
+          <Property Type="Decimal" Name="Percentage" Nullable="false" Precision="5" Scale="2" />
         </ComplexType>
         <ComplexType Name="usp_EmployeeExperience_Result">
           <Property Type="String" Name="CompanyName" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="JobTitle" Nullable="true" MaxLength="50" />
           <Property Type="DateTime" Name="StartDate" Nullable="true" />
           <Property Type="DateTime" Name="EndDate" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_EmployeeLoginCredentials_Result">
+          <Property Type="Int32" Name="LoginID" Nullable="false" />
+          <Property Type="Int32" Name="EmployeeID" Nullable="true" />
+          <Property Type="String" Name="EmployeeEmail" Nullable="false" MaxLength="320" />
+          <Property Type="String" Name="EmployeePassword" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="Role" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="CreatedDate" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+          <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+          <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
         </ComplexType>
         <ComplexType Name="usp_EmployeeSalaryStructure_Result">
           <Property Type="Decimal" Name="BasicSalary" Nullable="false" Precision="10" Scale="2" />
@@ -842,9 +829,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="EmployeeManagementtModelStoreContainer" CdmEntityContainer="EmployeeManagementtEntities">
+        <EntityContainerMapping StorageEntityContainer="EmployeeManagementModelStoreContainer" CdmEntityContainer="EmployeeManagementEntities">
           <EntitySetMapping Name="EmployeeAddresses">
-            <EntityTypeMapping TypeName="EmployeeManagementtModel.EmployeeAddress">
+            <EntityTypeMapping TypeName="EmployeeManagementModel.EmployeeAddress">
               <MappingFragment StoreEntitySet="EmployeeAddress">
                 <ScalarProperty Name="AddressID" ColumnName="AddressID" />
                 <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
@@ -858,37 +845,29 @@
                 <ScalarProperty Name="IsPermanent" ColumnName="IsPermanent" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EmployeeDepartments">
-            <EntityTypeMapping TypeName="EmployeeManagementtModel.EmployeeDepartment">
+            <EntityTypeMapping TypeName="EmployeeManagementModel.EmployeeDepartment">
               <MappingFragment StoreEntitySet="EmployeeDepartment">
                 <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
                 <ScalarProperty Name="Department" ColumnName="Department" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EmployeeDesignations">
-            <EntityTypeMapping TypeName="EmployeeManagementtModel.EmployeeDesignation">
+            <EntityTypeMapping TypeName="EmployeeManagementModel.EmployeeDesignation">
               <MappingFragment StoreEntitySet="EmployeeDesignation">
                 <ScalarProperty Name="DesignationID" ColumnName="DesignationID" />
                 <ScalarProperty Name="Designation" ColumnName="Designation" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EmployeeDetails">
-            <EntityTypeMapping TypeName="EmployeeManagementtModel.EmployeeDetail">
+            <EntityTypeMapping TypeName="EmployeeManagementModel.EmployeeDetail">
               <MappingFragment StoreEntitySet="EmployeeDetails">
                 <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
                 <ScalarProperty Name="Photo" ColumnName="Photo" />
@@ -908,27 +887,24 @@
                 <ScalarProperty Name="Department" ColumnName="Department" />
                 <ScalarProperty Name="ReportingManager" ColumnName="ReportingManager" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Roles" ColumnName="Roles" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EmployeeDocumentMasters">
-            <EntityTypeMapping TypeName="EmployeeManagementtModel.EmployeeDocumentMaster">
+            <EntityTypeMapping TypeName="EmployeeManagementModel.EmployeeDocumentMaster">
               <MappingFragment StoreEntitySet="EmployeeDocumentMaster">
                 <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
                 <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EmployeeDocuments">
-            <EntityTypeMapping TypeName="EmployeeManagementtModel.EmployeeDocument">
+            <EntityTypeMapping TypeName="EmployeeManagementModel.EmployeeDocument">
               <MappingFragment StoreEntitySet="EmployeeDocuments">
                 <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
                 <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
@@ -936,13 +912,13 @@
                 <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EmployeeEducationDetails">
-            <EntityTypeMapping TypeName="EmployeeManagementtModel.EmployeeEducationDetail">
+            <EntityTypeMapping TypeName="EmployeeManagementModel.EmployeeEducationDetail">
               <MappingFragment StoreEntitySet="EmployeeEducationDetails">
                 <ScalarProperty Name="EducationID" ColumnName="EducationID" />
                 <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
@@ -955,13 +931,13 @@
                 <ScalarProperty Name="Percentage" ColumnName="Percentage" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EmployeeExperiences">
-            <EntityTypeMapping TypeName="EmployeeManagementtModel.EmployeeExperience">
+            <EntityTypeMapping TypeName="EmployeeManagementModel.EmployeeExperience">
               <MappingFragment StoreEntitySet="EmployeeExperience">
                 <ScalarProperty Name="ExperienceID" ColumnName="ExperienceID" />
                 <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
@@ -971,27 +947,28 @@
                 <ScalarProperty Name="EndDate" ColumnName="EndDate" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EmployeeLoginCredentials">
-            <EntityTypeMapping TypeName="EmployeeManagementtModel.EmployeeLoginCredential">
+            <EntityTypeMapping TypeName="EmployeeManagementModel.EmployeeLoginCredential">
               <MappingFragment StoreEntitySet="EmployeeLoginCredentials">
                 <ScalarProperty Name="LoginID" ColumnName="LoginID" />
                 <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
                 <ScalarProperty Name="EmployeeEmail" ColumnName="EmployeeEmail" />
                 <ScalarProperty Name="EmployeePassword" ColumnName="EmployeePassword" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EmployeeSalaryStructures">
-            <EntityTypeMapping TypeName="EmployeeManagementtModel.EmployeeSalaryStructure">
+            <EntityTypeMapping TypeName="EmployeeManagementModel.EmployeeSalaryStructure">
               <MappingFragment StoreEntitySet="EmployeeSalaryStructure">
                 <ScalarProperty Name="EmployeeSalaryID" ColumnName="EmployeeSalaryID" />
                 <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
@@ -1004,14 +981,14 @@
                 <ScalarProperty Name="NetSalary" ColumnName="NetSalary" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="usp_EmployeeAddress" FunctionName="EmployeeManagementtModel.Store.usp_EmployeeAddress">
+          <FunctionImportMapping FunctionImportName="usp_EmployeeAddress" FunctionName="EmployeeManagementModel.Store.usp_EmployeeAddress">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="EmployeeManagementtModel.usp_EmployeeAddress_Result">
+              <ComplexTypeMapping TypeName="EmployeeManagementModel.usp_EmployeeAddress_Result">
                 <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
                 <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
                 <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
@@ -1023,11 +1000,11 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="usp_EmployeeDepartment" FunctionName="EmployeeManagementtModel.Store.usp_EmployeeDepartment" />
-          <FunctionImportMapping FunctionImportName="usp_EmployeeDesignation" FunctionName="EmployeeManagementtModel.Store.usp_EmployeeDesignation" />
-          <FunctionImportMapping FunctionImportName="usp_EmployeeDetails" FunctionName="EmployeeManagementtModel.Store.usp_EmployeeDetails">
+          <FunctionImportMapping FunctionImportName="usp_EmployeeDepartment" FunctionName="EmployeeManagementModel.Store.usp_EmployeeDepartment" />
+          <FunctionImportMapping FunctionImportName="usp_EmployeeDesignation" FunctionName="EmployeeManagementModel.Store.usp_EmployeeDesignation" />
+          <FunctionImportMapping FunctionImportName="usp_EmployeeDetails" FunctionName="EmployeeManagementModel.Store.usp_EmployeeDetails">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="EmployeeManagementtModel.usp_EmployeeDetails_Result">
+              <ComplexTypeMapping TypeName="EmployeeManagementModel.usp_EmployeeDetails_Result">
                 <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -1048,18 +1025,18 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="usp_EmployeeDocument" FunctionName="EmployeeManagementtModel.Store.usp_EmployeeDocument">
+          <FunctionImportMapping FunctionImportName="usp_EmployeeDocument" FunctionName="EmployeeManagementModel.Store.usp_EmployeeDocument">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="EmployeeManagementtModel.usp_EmployeeDocument_Result">
+              <ComplexTypeMapping TypeName="EmployeeManagementModel.usp_EmployeeDocument_Result">
                 <ScalarProperty Name="DocumentImage" ColumnName="DocumentImage" />
                 <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="usp_EmployeeDocumentMaster" FunctionName="EmployeeManagementtModel.Store.usp_EmployeeDocumentMaster" />
-          <FunctionImportMapping FunctionImportName="usp_EmployeeEducationDetails" FunctionName="EmployeeManagementtModel.Store.usp_EmployeeEducationDetails">
+          <FunctionImportMapping FunctionImportName="usp_EmployeeDocumentMaster" FunctionName="EmployeeManagementModel.Store.usp_EmployeeDocumentMaster" />
+          <FunctionImportMapping FunctionImportName="usp_EmployeeEducationDetails" FunctionName="EmployeeManagementModel.Store.usp_EmployeeEducationDetails">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="EmployeeManagementtModel.usp_EmployeeEducationDetails_Result">
+              <ComplexTypeMapping TypeName="EmployeeManagementModel.usp_EmployeeEducationDetails_Result">
                 <ScalarProperty Name="Degree" ColumnName="Degree" />
                 <ScalarProperty Name="Institution" ColumnName="Institution" />
                 <ScalarProperty Name="State" ColumnName="State" />
@@ -1070,9 +1047,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="usp_EmployeeExperience" FunctionName="EmployeeManagementtModel.Store.usp_EmployeeExperience">
+          <FunctionImportMapping FunctionImportName="usp_EmployeeExperience" FunctionName="EmployeeManagementModel.Store.usp_EmployeeExperience">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="EmployeeManagementtModel.usp_EmployeeExperience_Result">
+              <ComplexTypeMapping TypeName="EmployeeManagementModel.usp_EmployeeExperience_Result">
                 <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
                 <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
                 <ScalarProperty Name="StartDate" ColumnName="StartDate" />
@@ -1080,10 +1057,24 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="usp_EmployeeLoginCredentials" FunctionName="EmployeeManagementtModel.Store.usp_EmployeeLoginCredentials" />
-          <FunctionImportMapping FunctionImportName="usp_EmployeeSalaryStructure" FunctionName="EmployeeManagementtModel.Store.usp_EmployeeSalaryStructure">
+          <FunctionImportMapping FunctionImportName="usp_EmployeeLoginCredentials" FunctionName="EmployeeManagementModel.Store.usp_EmployeeLoginCredentials">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="EmployeeManagementtModel.usp_EmployeeSalaryStructure_Result">
+              <ComplexTypeMapping TypeName="EmployeeManagementModel.usp_EmployeeLoginCredentials_Result">
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="EmployeeEmail" ColumnName="EmployeeEmail" />
+                <ScalarProperty Name="EmployeePassword" ColumnName="EmployeePassword" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_EmployeeSalaryStructure" FunctionName="EmployeeManagementModel.Store.usp_EmployeeSalaryStructure">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="EmployeeManagementModel.usp_EmployeeSalaryStructure_Result">
                 <ScalarProperty Name="BasicSalary" ColumnName="BasicSalary" />
                 <ScalarProperty Name="HRA" ColumnName="HRA" />
                 <ScalarProperty Name="DA" ColumnName="DA" />

@@ -10,34 +10,62 @@ namespace EmployeeManagementt.Controllers
     public class EmployeeDesignationController : ApiController
     {
 
-        EmployeeManagementtEntities entity = new EmployeeManagementtEntities();
+        EmployeeManagementEntities entity = new EmployeeManagementEntities();
 
         //To Get All Designations.
         public IHttpActionResult Get()
         {
-            var result = entity.usp_EmployeeDesignation(0, "",0,0, "Get");
-            return Ok(result);
+            try
+            {
+                var result = entity.usp_EmployeeDesignation(0, "", "Get");
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         //To Insert A New Designation.
-        public IHttpActionResult Post(EmployeeDesignation emp)
+        public IHttpActionResult Post([FromBody] EmployeeDesignation emp)
         {
-            var result = entity.usp_EmployeeDesignation(emp.DesignationID, emp.Designation,0,0,"Insert");
-            return Ok(result);
+            try
+            {
+                var result = entity.usp_EmployeeDesignation(0, emp.Designation, "Insert");
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         //To Update A Designation
-        public IHttpActionResult Put(EmployeeDesignation emp)
+        public IHttpActionResult Put([FromBody] EmployeeDesignation emp)
         {
-            var result = entity.usp_EmployeeDesignation(emp.DesignationID, emp.Designation,0,0,"Update");
-            return Ok(result);
+            try
+            {
+                var result = entity.usp_EmployeeDesignation(emp.DesignationID, emp.Designation,"Update");
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         //To Delete A Designation
-        public IHttpActionResult Delete(EmployeeDesignation emp)
+        public IHttpActionResult Delete([FromBody] EmployeeDesignation emp)
         {
-            var result = entity.usp_EmployeeDesignation(emp.DesignationID, emp.Designation, 0, 0, "Delete");
-            return Ok(result);
+            try
+            {
+                var result = entity.usp_EmployeeDesignation(emp.DesignationID, emp.Designation, "Delete");
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

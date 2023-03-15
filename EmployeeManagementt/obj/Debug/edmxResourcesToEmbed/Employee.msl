@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="EmployeeManagementtModelStoreContainer" CdmEntityContainer="EmployeeManagementtEntities">
+  <EntityContainerMapping StorageEntityContainer="EmployeeManagementModelStoreContainer" CdmEntityContainer="EmployeeManagementEntities">
     <EntitySetMapping Name="EmployeeAddresses">
-      <EntityTypeMapping TypeName="EmployeeManagementtModel.EmployeeAddress">
+      <EntityTypeMapping TypeName="EmployeeManagementModel.EmployeeAddress">
         <MappingFragment StoreEntitySet="EmployeeAddress">
           <ScalarProperty Name="AddressID" ColumnName="AddressID" />
           <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
@@ -14,11 +14,15 @@
           <ScalarProperty Name="Country" ColumnName="Country" />
           <ScalarProperty Name="IsCurrent" ColumnName="IsCurrent" />
           <ScalarProperty Name="IsPermanent" ColumnName="IsPermanent" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EmployeeDepartments">
-      <EntityTypeMapping TypeName="EmployeeManagementtModel.EmployeeDepartment">
+      <EntityTypeMapping TypeName="EmployeeManagementModel.EmployeeDepartment">
         <MappingFragment StoreEntitySet="EmployeeDepartment">
           <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
           <ScalarProperty Name="Department" ColumnName="Department" />
@@ -26,7 +30,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EmployeeDesignations">
-      <EntityTypeMapping TypeName="EmployeeManagementtModel.EmployeeDesignation">
+      <EntityTypeMapping TypeName="EmployeeManagementModel.EmployeeDesignation">
         <MappingFragment StoreEntitySet="EmployeeDesignation">
           <ScalarProperty Name="DesignationID" ColumnName="DesignationID" />
           <ScalarProperty Name="Designation" ColumnName="Designation" />
@@ -34,7 +38,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EmployeeDetails">
-      <EntityTypeMapping TypeName="EmployeeManagementtModel.EmployeeDetail">
+      <EntityTypeMapping TypeName="EmployeeManagementModel.EmployeeDetail">
         <MappingFragment StoreEntitySet="EmployeeDetails">
           <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
           <ScalarProperty Name="Photo" ColumnName="Photo" />
@@ -54,11 +58,16 @@
           <ScalarProperty Name="Department" ColumnName="Department" />
           <ScalarProperty Name="ReportingManager" ColumnName="ReportingManager" />
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Roles" ColumnName="Roles" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EmployeeDocumentMasters">
-      <EntityTypeMapping TypeName="EmployeeManagementtModel.EmployeeDocumentMaster">
+      <EntityTypeMapping TypeName="EmployeeManagementModel.EmployeeDocumentMaster">
         <MappingFragment StoreEntitySet="EmployeeDocumentMaster">
           <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
           <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
@@ -66,17 +75,21 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EmployeeDocuments">
-      <EntityTypeMapping TypeName="EmployeeManagementtModel.EmployeeDocument">
+      <EntityTypeMapping TypeName="EmployeeManagementModel.EmployeeDocument">
         <MappingFragment StoreEntitySet="EmployeeDocuments">
           <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
           <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
           <ScalarProperty Name="DocumentImage" ColumnName="DocumentImage" />
           <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EmployeeEducationDetails">
-      <EntityTypeMapping TypeName="EmployeeManagementtModel.EmployeeEducationDetail">
+      <EntityTypeMapping TypeName="EmployeeManagementModel.EmployeeEducationDetail">
         <MappingFragment StoreEntitySet="EmployeeEducationDetails">
           <ScalarProperty Name="EducationID" ColumnName="EducationID" />
           <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
@@ -87,11 +100,15 @@
           <ScalarProperty Name="EndDate" ColumnName="EndDate" />
           <ScalarProperty Name="DegreeType" ColumnName="DegreeType" />
           <ScalarProperty Name="Percentage" ColumnName="Percentage" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EmployeeExperiences">
-      <EntityTypeMapping TypeName="EmployeeManagementtModel.EmployeeExperience">
+      <EntityTypeMapping TypeName="EmployeeManagementModel.EmployeeExperience">
         <MappingFragment StoreEntitySet="EmployeeExperience">
           <ScalarProperty Name="ExperienceID" ColumnName="ExperienceID" />
           <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
@@ -99,21 +116,30 @@
           <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
           <ScalarProperty Name="StartDate" ColumnName="StartDate" />
           <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EmployeeLoginCredentials">
-      <EntityTypeMapping TypeName="EmployeeManagementtModel.EmployeeLoginCredential">
+      <EntityTypeMapping TypeName="EmployeeManagementModel.EmployeeLoginCredential">
         <MappingFragment StoreEntitySet="EmployeeLoginCredentials">
           <ScalarProperty Name="LoginID" ColumnName="LoginID" />
           <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
           <ScalarProperty Name="EmployeeEmail" ColumnName="EmployeeEmail" />
           <ScalarProperty Name="EmployeePassword" ColumnName="EmployeePassword" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EmployeeSalaryStructures">
-      <EntityTypeMapping TypeName="EmployeeManagementtModel.EmployeeSalaryStructure">
+      <EntityTypeMapping TypeName="EmployeeManagementModel.EmployeeSalaryStructure">
         <MappingFragment StoreEntitySet="EmployeeSalaryStructure">
           <ScalarProperty Name="EmployeeSalaryID" ColumnName="EmployeeSalaryID" />
           <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
@@ -124,14 +150,16 @@
           <ScalarProperty Name="OtherAllowances" ColumnName="OtherAllowances" />
           <ScalarProperty Name="Deductions" ColumnName="Deductions" />
           <ScalarProperty Name="NetSalary" ColumnName="NetSalary" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="sp_EmployeeAddress" FunctionName="EmployeeManagementtModel.Store.sp_EmployeeAddress">
+    <FunctionImportMapping FunctionImportName="usp_EmployeeAddress" FunctionName="EmployeeManagementModel.Store.usp_EmployeeAddress">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="EmployeeManagementtModel.sp_EmployeeAddress_Result">
-          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
-          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+        <ComplexTypeMapping TypeName="EmployeeManagementModel.usp_EmployeeAddress_Result">
           <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
           <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
           <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
@@ -143,26 +171,11 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_EmployeeDepartment" FunctionName="EmployeeManagementtModel.Store.sp_EmployeeDepartment">
+    <FunctionImportMapping FunctionImportName="usp_EmployeeDepartment" FunctionName="EmployeeManagementModel.Store.usp_EmployeeDepartment" />
+    <FunctionImportMapping FunctionImportName="usp_EmployeeDesignation" FunctionName="EmployeeManagementModel.Store.usp_EmployeeDesignation" />
+    <FunctionImportMapping FunctionImportName="usp_EmployeeDetails" FunctionName="EmployeeManagementModel.Store.usp_EmployeeDetails">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="EmployeeManagementtModel.sp_EmployeeDepartment_Result">
-          <ScalarProperty Name="DepartmentID" ColumnName="DepartmentID" />
-          <ScalarProperty Name="Department" ColumnName="Department" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_EmployeeDesignation" FunctionName="EmployeeManagementtModel.Store.sp_EmployeeDesignation">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="EmployeeManagementtModel.sp_EmployeeDesignation_Result">
-          <ScalarProperty Name="DesignationID" ColumnName="DesignationID" />
-          <ScalarProperty Name="Designation" ColumnName="Designation" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_EmployeeDetails" FunctionName="EmployeeManagementtModel.Store.sp_EmployeeDetails">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="EmployeeManagementtModel.sp_EmployeeDetails_Result">
-          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+        <ComplexTypeMapping TypeName="EmployeeManagementModel.usp_EmployeeDetails_Result">
           <ScalarProperty Name="Photo" ColumnName="Photo" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -170,12 +183,12 @@
           <ScalarProperty Name="Gender" ColumnName="Gender" />
           <ScalarProperty Name="PersonalEmail" ColumnName="PersonalEmail" />
           <ScalarProperty Name="OfficialEmail" ColumnName="OfficialEmail" />
-          <ScalarProperty Name="PhoneNO" ColumnName="PhoneNO" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
           <ScalarProperty Name="EmergencyContactNo" ColumnName="EmergencyContactNo" />
           <ScalarProperty Name="WorkLocation" ColumnName="WorkLocation" />
           <ScalarProperty Name="WorkingState" ColumnName="WorkingState" />
           <ScalarProperty Name="WorkingCountry" ColumnName="WorkingCountry" />
-          <ScalarProperty Name="Dateofjoining" ColumnName="Dateofjoining" />
+          <ScalarProperty Name="DateofJoining" ColumnName="DateofJoining" />
           <ScalarProperty Name="Designation" ColumnName="Designation" />
           <ScalarProperty Name="Department" ColumnName="Department" />
           <ScalarProperty Name="ReportingManager" ColumnName="ReportingManager" />
@@ -183,29 +196,18 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_EmployeeDocument" FunctionName="EmployeeManagementtModel.Store.sp_EmployeeDocument">
+    <FunctionImportMapping FunctionImportName="usp_EmployeeDocument" FunctionName="EmployeeManagementModel.Store.usp_EmployeeDocument">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="EmployeeManagementtModel.sp_EmployeeDocument_Result">
-          <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
-          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+        <ComplexTypeMapping TypeName="EmployeeManagementModel.usp_EmployeeDocument_Result">
           <ScalarProperty Name="DocumentImage" ColumnName="DocumentImage" />
           <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_EmployeeDocumentMaster" FunctionName="EmployeeManagementtModel.Store.sp_EmployeeDocumentMaster">
+    <FunctionImportMapping FunctionImportName="usp_EmployeeDocumentMaster" FunctionName="EmployeeManagementModel.Store.usp_EmployeeDocumentMaster" />
+    <FunctionImportMapping FunctionImportName="usp_EmployeeEducationDetails" FunctionName="EmployeeManagementModel.Store.usp_EmployeeEducationDetails">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="EmployeeManagementtModel.sp_EmployeeDocumentMaster_Result">
-          <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
-          <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_EmployeeEducationDetails" FunctionName="EmployeeManagementtModel.Store.sp_EmployeeEducationDetails">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="EmployeeManagementtModel.sp_EmployeeEducationDetails_Result">
-          <ScalarProperty Name="EducationID" ColumnName="EducationID" />
-          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+        <ComplexTypeMapping TypeName="EmployeeManagementModel.usp_EmployeeEducationDetails_Result">
           <ScalarProperty Name="Degree" ColumnName="Degree" />
           <ScalarProperty Name="Institution" ColumnName="Institution" />
           <ScalarProperty Name="State" ColumnName="State" />
@@ -216,11 +218,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_EmployeeExpereince" FunctionName="EmployeeManagementtModel.Store.sp_EmployeeExpereince">
+    <FunctionImportMapping FunctionImportName="usp_EmployeeExperience" FunctionName="EmployeeManagementModel.Store.usp_EmployeeExperience">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="EmployeeManagementtModel.sp_EmployeeExpereince_Result">
-          <ScalarProperty Name="ExperienceID" ColumnName="ExperienceID" />
-          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+        <ComplexTypeMapping TypeName="EmployeeManagementModel.usp_EmployeeExperience_Result">
           <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
           <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
           <ScalarProperty Name="StartDate" ColumnName="StartDate" />
@@ -228,11 +228,24 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_EmployeeSalaryStructure" FunctionName="EmployeeManagementtModel.Store.sp_EmployeeSalaryStructure">
+    <FunctionImportMapping FunctionImportName="usp_EmployeeLoginCredentials" FunctionName="EmployeeManagementModel.Store.usp_EmployeeLoginCredentials">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="EmployeeManagementtModel.sp_EmployeeSalaryStructure_Result">
-          <ScalarProperty Name="EmployeeSalaryID" ColumnName="EmployeeSalaryID" />
+        <ComplexTypeMapping TypeName="EmployeeManagementModel.usp_EmployeeLoginCredentials_Result">
+          <ScalarProperty Name="LoginID" ColumnName="LoginID" />
           <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EmployeeEmail" ColumnName="EmployeeEmail" />
+          <ScalarProperty Name="EmployeePassword" ColumnName="EmployeePassword" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_EmployeeSalaryStructure" FunctionName="EmployeeManagementModel.Store.usp_EmployeeSalaryStructure">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="EmployeeManagementModel.usp_EmployeeSalaryStructure_Result">
           <ScalarProperty Name="BasicSalary" ColumnName="BasicSalary" />
           <ScalarProperty Name="HRA" ColumnName="HRA" />
           <ScalarProperty Name="DA" ColumnName="DA" />
@@ -243,6 +256,5 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="sp_LoginCredentials" FunctionName="EmployeeManagementtModel.Store.sp_LoginCredentials" />
   </EntityContainerMapping>
 </Mapping>

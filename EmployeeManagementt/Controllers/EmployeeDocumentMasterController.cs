@@ -9,29 +9,58 @@ namespace EmployeeManagementt.Controllers
 {
     public class EmployeeDocumentMasterController : ApiController
     {
-        EmployeeManagementtEntities entity = new EmployeeManagementtEntities();
+        EmployeeManagementEntities entity = new EmployeeManagementEntities();
 
         public IHttpActionResult Get()
         {
-            var result = entity.usp_EmployeeDocumentMaster(0, "", 0, 0, "Get");
-            return Ok(result);
+            try
+            {
+                var result = entity.usp_EmployeeDocumentMaster(0, "", 0, 0, "Get");
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);  
+            }
         }
 
-        public IHttpActionResult Post(EmployeeDocumentMaster emp)
+        public IHttpActionResult Post([FromBody] EmployeeDocumentMaster emp)
         {
-            var result = entity.usp_EmployeeDocumentMaster(emp.DocumentID, emp.DocumentName, 0, 0, "Insert");
-            return Ok(result);
+            try
+            {
+                var result = entity.usp_EmployeeDocumentMaster(0, emp.DocumentName, 0, 0, "Insert");
+                return Ok(result);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
-        public IHttpActionResult Put(EmployeeDocumentMaster emp)
+        public IHttpActionResult Put([FromBody] EmployeeDocumentMaster emp)
         {
-            var result = entity.usp_EmployeeDocumentMaster(emp.DocumentID, emp.DocumentName, 0, 0, "Update");
-            return Ok(result);
+            try
+            {
+                var result = entity.usp_EmployeeDocumentMaster(emp.DocumentID, emp.DocumentName, 0, 0, "Update");
+                return Ok(result);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);  
+            }
         }
 
-        public IHttpActionResult Delete(EmployeeDocumentMaster emp)
+        public IHttpActionResult Delete([FromBody] EmployeeDocumentMaster emp)
         {
-            var result = entity.usp_EmployeeDocumentMaster(0, emp.DocumentName, 0, 0, "Delete");
-            return Ok(result);
+            try
+            {
+                var result = entity.usp_EmployeeDocumentMaster(0, emp.DocumentName, 0, 0, "Delete");
+                return Ok(result);
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
